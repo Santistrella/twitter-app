@@ -3,7 +3,8 @@ import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from "react-router-dom";
 import {Explore} from "./Components/Explore/Explore";
 import {Profile} from "./Components/Profile/Profile";
@@ -26,6 +27,7 @@ function App() {
             <Route exact path={'/explore'} component={Explore} />
             <Route path={'/home'} component={Home} />
             <Route path={'/profile'} component={Profile} />
+            <Redirect exact from="/" to="explore" />
          </Switch>
       </Router>
     </Fragment>

@@ -23,3 +23,4 @@ storage/logs/
 
 # IDE files
 .idea/
+dbdata/
