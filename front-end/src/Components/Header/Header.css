@@ -9,6 +9,7 @@
     justify-content: stretch;
     align-items: flex-start;
     margin-left: 300px;
+    padding-top: 1em;
 }
 
 #Navlinks {
@@ -17,7 +18,7 @@
     text-decoration: none;
     color: #282c34;
     margin: 15px;
-    padding: 12px;
+    padding: 3.5px;
     text-align: start;
 
 }
@@ -34,8 +35,10 @@
     border: none;
     background-color:#00acee;
     border-radius: 30px;
-    padding: 20px;
-    width: 250px;
+    padding: 10px;
+    margin-top: 20px;
+    width: 205px;
+    height: 50px;
     color: white;
     font-size: 15px;
     font-family: Ubuntu;
@@ -48,7 +51,14 @@
 }
 
 .twitterLogo {
-    width: 50px;
-    height: 50px;
-    padding-left: 25px;
+    width: 28px;
+    height: 28px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+}
+
+.icons {
+    width: 150px;
+    height: 20px;
+    margin-right: 20px;
 }
