@@ -1,0 +1,44 @@
+.TopNavbar {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    background-color: #ffffff;
+    width: 70%;
+    height: 55px;
+    border-bottom: 1px solid rgba(40, 44, 52, 0.26);
+}
+
+.NavigationContainer {
+    width: 50%;
+    height: 100%;
+    border-right: 1px solid rgba(40, 44, 52, 0.26);
+}
+
+.TopNavbar h3 {
+    padding-left: 10px;
+    line-height: 20px;
+    font-size: 22px;
+}
+
+.SearchBarContainer {
+    height: 100%;
+    width: 30%;
+    border-bottom: none;
+    padding-right: 14%;
+}
+
+.SearchBar {
+    width: 100%;
+    float: left;
+    padding: 8px;
+    margin: 2%;
+    border-radius: 28px;
+    margin-left: -30px;
+    border: none;
+    background-color: rgba(172, 186, 189, 0.19);
+    font-family: Ubuntu;
+    font-size: 18px;
+}
