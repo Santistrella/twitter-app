@@ -1,6 +1,14 @@
+
+.column {
+    display: flex;
+    position: relative;
+}
+
 .explore {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    margin-left: 600px;
+    align-items: flex-start;
+    background-color: #ffffff;
+    width: 100%;
+    padding: 10%;
 }

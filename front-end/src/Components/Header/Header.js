@@ -11,7 +11,7 @@ import { faBell, faListAlt, faUser, faEllipsisH, faHashtag, faBookmark, faEnvelo
 
 export const Header = () => {
     return (
-        <header className="header">
+        <div className="header">
             <nav className="navigation">
                 <NavLink to={'/home'}exact ><img src={twitter} className="twitterLogo"/></NavLink>
                 <NavLink to={'/home'} exact activeClassName="active" id="Navlinks">
@@ -26,7 +26,7 @@ export const Header = () => {
                     <FontAwesomeIcon className="icons" icon={faBell} />
                     Notificaciones
                 </NavLink>
-                <NavLink to={'/notifications'} activeClassName="active" id="Navlinks">
+                <NavLink to={'/messages'} activeClassName="active" id="Navlinks">
                     <FontAwesomeIcon className="icons" icon={faEnvelope} />
                     Mensajes
                 </NavLink>
@@ -48,6 +48,7 @@ export const Header = () => {
                 </NavLink>
                 <button className="tweetButton">Twittear</button>
             </nav>
-        </header>
+        </div>
+
     );
 }
