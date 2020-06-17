@@ -1,4 +1,6 @@
-
+.header {
+    border-right: 1px solid rgba(40, 44, 52, 0.26);
+}
 
 .navigation {
     position: fixed;
@@ -8,8 +10,10 @@
     flex-direction: column;
     justify-content: stretch;
     align-items: flex-start;
-    margin-left: 300px;
     padding-top: 1em;
+    margin-left: 15%;
+    padding-right: 20px;
+    height: 100%;
 }
 
 #Navlinks {

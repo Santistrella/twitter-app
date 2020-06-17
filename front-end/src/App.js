@@ -10,7 +10,9 @@ import {Explore} from "./Components/Explore/Explore";
 import {Profile} from "./Components/Profile/Profile";
 import {Home} from "./Components/Home/Home";
 import {Header} from "./Components/Header/Header";
-import {Recommend} from "./Components/Recommend/Recommend";
+import {News} from "./Components/Recommend/News";
+import {RegisterForm} from "./Components/RegisterForm/RegisterForm";
+import {TopNav} from "./Components/TopHeader/Topnav";
 
 function App() {
 
@@ -19,18 +21,17 @@ function App() {
     });
 
   return (
-    <Fragment>
+    <div className="App">
       <Router>
           <Header />
-          <Recommend />
-         <Switch>
+          <TopNav />
+          <Route path={'/home'} component={Home} />
             <Route exact path={'/explore'} component={Explore} />
-            <Route path={'/home'} component={Home} />
             <Route path={'/profile'} component={Profile} />
             <Redirect exact from="/" to="explore" />
-         </Switch>
+            <News />
       </Router>
-    </Fragment>
+    </div>
   );
 }
 
