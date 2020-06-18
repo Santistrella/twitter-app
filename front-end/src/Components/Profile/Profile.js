@@ -5,11 +5,14 @@ import {
     Switch,
     Route
 } from "react-router-dom";
+import {RegisterForm} from "../RegisterForm/RegisterForm";
 
 export const Profile = () => {
     return (
+        <div className="column">
         <div className="profile">
-            <h1>Profile</h1>
+            <RegisterForm />
+        </div>
         </div>
     );
 }

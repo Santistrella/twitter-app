@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -11,7 +11,6 @@ import {Profile} from "./Components/Profile/Profile";
 import {Home} from "./Components/Home/Home";
 import {Header} from "./Components/Header/Header";
 import {News} from "./Components/Recommend/News";
-import {RegisterForm} from "./Components/RegisterForm/RegisterForm";
 import {TopNav} from "./Components/TopHeader/Topnav";
 
 function App() {
