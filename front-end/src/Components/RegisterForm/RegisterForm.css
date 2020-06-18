@@ -1,6 +1,7 @@
-.RegisterContainer {
+.LoginContainer {
     display: flex;
-    position: relative;
+    position: relative; 
+    margin-top: 20px;
 }
 
 .FormContainer {
