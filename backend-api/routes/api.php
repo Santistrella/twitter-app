@@ -16,3 +16,11 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+//Crear Usuario
+Route::post('/user', 'UsersController@create');
+//Llamar Usuario por Id
+Route::get('/user/{id}', 'UsersController@findById');
+//Modificar Usuario
+Route::put('/user/{id}', 'UsersController@update');
+//Eliminar Usuario
+Route::delete('/user/{id}', 'UsersController@delete');
