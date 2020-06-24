@@ -1,7 +1,7 @@
 .Home {
     display: flex;
-    position: relative;
     height: 100%;
+    z-index: 1;
 }
 
 .feedContainer {
@@ -9,24 +9,28 @@
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 55px;
     background-color: #ffffff;
-    height: 100%;
+    height: 100vh;
 }
 
 .MakeTweet {
-    padding-bottom: 40px;
-    padding-left: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding-top: 30px;
+    padding-left: 20px;
     padding-right: 60px;
-    width: 88%;
-    height: 60px;
+    width: 100%;
+    min-width: 381px;
+    border-bottom: 10px solid rgba(40, 44, 52, 0.13);
 }
 
 .MakeTweet input {
-    width: 100%;
-    height: 80%;
     border: none;
     font-size: 20px;
+    color: black;
 }
 
 .MakeTweet button {
@@ -37,12 +41,20 @@
     font-family: Ubuntu;
     font-weight: bold;
     cursor: pointer;
-    padding: 10px;
+    padding: 12px;
     font-size: 15px;
-    margin-left: 80%;
+    margin: 10px;
+    margin-left: 85%;
+    max-width: 100px;
+    min-width: 100px;
 }
 
 .MakeTweet button:hover:not(.active) {
     background-color: #0390c6;
     transition: 0.3s;
+}
+
+
+@media screen and (min-width: 401px) and (max-width: 1024px) {
+    .MakeTweet {border-left: 1px solid rgba(40, 44, 52, 0.13); border-right: 1px solid rgba(40, 44, 52, 0.13); }
 }

@@ -21,7 +21,6 @@ export const Home = () => {
         <div className="Home">
         <div className="feedContainer">
             <div className="MakeTweet">
-                <img className="profile-thumbnail" />
                 <input
                 type="text"
                 placeholder="¿Qué está pasando?"/>

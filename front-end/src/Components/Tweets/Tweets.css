@@ -5,7 +5,8 @@
     color: #282c34;
     flex-direction: column;
     padding: 10px;
-    border: 1px solid rgba(40, 44, 52, 0.26);
+    border-top: 1px solid rgba(40, 44, 52, 0.13);
+    border-bottom: 1px solid rgba(40, 44, 52, 0.13);
     position: relative;
     cursor: pointer;
     background-color: #ffffff;
@@ -77,4 +78,5 @@
 
 @media screen and (min-width: 401px) and (max-width: 1024px) {
     .cta button {width: 80px; margin-left: 20px}
+    .tweetContainer {border: 1px solid rgba(40, 44, 52, 0.13)}
 }
