@@ -4,7 +4,6 @@
     background-color: #ffffff;
     align-items: center;
     justify-content: space-between;
-    z-index: 1;
 }
 
 .RecommendDiv {
@@ -29,4 +28,8 @@
     border-radius: 28px;
     padding: 10px;
     margin: 10px;
+}
+
+@media screen and (min-width: 401px) and (max-width: 1024px) {
+    .NewsContainer {visibility: collapse}
 }

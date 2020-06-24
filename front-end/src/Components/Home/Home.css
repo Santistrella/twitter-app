@@ -1,14 +1,48 @@
-
-.column {
+.Home {
     display: flex;
     position: relative;
+    height: 100%;
 }
 
-.feed {
+.feedContainer {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: #ffffff;
     width: 100%;
-    padding: 10%;
+    margin-top: 50px;
+    background-color: #ffffff;
+    height: 100%;
+}
+
+.MakeTweet {
+    padding-bottom: 40px;
+    padding-left: 60px;
+    padding-right: 60px;
+    width: 88%;
+    height: 60px;
+}
+
+.MakeTweet input {
+    width: 100%;
+    height: 80%;
+    border: none;
+    font-size: 20px;
+}
+
+.MakeTweet button {
+    border: none;
+    background-color:#00acee;
+    border-radius: 30px;
+    color: white;
+    font-family: Ubuntu;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 15px;
+    margin-left: 80%;
+}
+
+.MakeTweet button:hover:not(.active) {
+    background-color: #0390c6;
+    transition: 0.3s;
 }

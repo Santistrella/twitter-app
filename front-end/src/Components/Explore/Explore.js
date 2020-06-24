@@ -1,17 +1,19 @@
 import React, {Fragment} from 'react';
 import './Explore.css';
-import landingexplore from './landingexplore.jpeg';
+import {LoginForm} from "../Login/Login";
+import {ExploreNav} from "../ExploreNav/ExploreNav";
+import {ExploreUser} from "./ExploreUser";
+
 
 
 
 
 export const Explore = () => {
     return (
-        <div className="column">
-        <div className="explore">
-            <img src={landingexplore} className="landingimage" />
-            <div className="photodescrip">COVID-19: Alemania, China y Portugal enfrentan nuevos brotes</div>
-        </div>
-        </div>
+            <div className="mainExplore">
+                <ExploreNav />
+                <ExploreUser />
+                <LoginForm />
+            </div>
     );
 }

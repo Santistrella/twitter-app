@@ -1,29 +1,7 @@
-
-.column {
-    display: flex;
-    position: relative;
-}
-
-.explore {
+.mainExplore {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
     justify-content: center;
-    background-color: #ffffff;
-    width: 100%;
-    padding: 10%;
-    position: relative;
-}
-
-.photodescrip {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-60%, -265%);
-    font-size: 30px;
-    color: #ffffff;
-    width: 70%;
-    font-weight: bold;
-    background: rgb(3,3,3);
-    background: linear-gradient(0deg, rgba(3,3,3,0.9920343137254902) 15%, rgba(108,109,110,0) 79%);
+    align-items: flex-start;
+    margin-top: 40px;
 }

@@ -1,22 +1,20 @@
 .LoginContainer {
-    display: flex;
-    position: relative;
     margin-top: 20px;
-    align-items: center;
-    justify-content: center;
 }
 
 .FormLogin {
+    margin-left: 10px;
+    width: 300px;
+    height: 600px;
+    margin-right: 5%;
     display: flex;
+    justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
-    height: auto;
     background-color: #ffffff;
-    padding: 20px 30px;
-    max-width: 300px;
+    padding: 30px;
     border: 1px solid rgba(40, 44, 52, 0.26);
     border-radius: 40px;
-    margin-left: 10px;
 }
 
 #Form input {
@@ -62,4 +60,9 @@
 .loginButton:hover:not(.active) {
     background-color: rgba(3, 144, 198, 0.13);
     transition: 0.3s;
+}
+
+.sidebarimage {
+    width: 250px;
+    height: 250px;
 }

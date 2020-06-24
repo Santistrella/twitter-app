@@ -4,7 +4,7 @@
     position: fixed;
     top: 0;
     right: 0;
-    z-index: 2;
+    z-index: 1;
     background-color: #ffffff;
     width: 70%;
     height: 55px;
@@ -41,4 +41,9 @@
     background-color: rgba(172, 186, 189, 0.19);
     font-family: Ubuntu;
     font-size: 18px;
+}
+
+@media screen and (min-width: 401px) and (max-width: 1024px) {
+    .NavigationContainer {border-right: none;}
+    .SearchBar {display: none}
 }
