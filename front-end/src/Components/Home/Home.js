@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './Home.css';
-import {Tweets} from "../Tweets/Tweets";
+import {TweetCreator} from "../Tweet/TweetCreator/TweetCreator";
+import {Tweets} from "../Tweet/Tweets/Tweets";
 
 
 
@@ -19,17 +20,12 @@ export const Home = () => {
 
     return (
         <div className="Home">
-        <div className="feedContainer">
-            <div className="MakeTweet">
-                <input
-                type="text"
-                placeholder="¿Qué está pasando?"/>
-                <button>Twittear</button>
-            </div>
+            <div className="feedContainer">
+            <TweetCreator />
             <div className="tweets">
                 {tweet && tweet.map(tweet => <Tweets {...tweet} key={tweet.id}/> )}
             </div>
-        </div>
+            </div>
         </div>
     );
 }

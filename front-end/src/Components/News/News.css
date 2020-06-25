@@ -3,10 +3,10 @@
     position: relative;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     background-color: #ffffff;
-    height: 100vw;
-    border-left: 1px solid rgba(40, 44, 52, 0.13);
+    height: 100%;
+    border-left: 0.5px solid rgba(40, 44, 52, 0.26);
     box-sizing: border-box;
     z-index: 2;
 }
@@ -47,7 +47,7 @@
 .SearchBar {
     padding: 10px;
     border-radius: 28px;
-    margin: 5px;
+    margin: 8px;
     margin-left: 40px;
     background-color: rgba(172, 186, 189, 0.42);
     font-family: Ubuntu;

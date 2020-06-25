@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import './Explore.css';
 import {LoginForm} from "../Login/Login";
-import {ExploreNav} from "../ExploreNav/ExploreNav";
+import {ExploreNav} from "../Navigations/ExploreNav/ExploreNav";
 import {ExploreUser} from "./ExploreUser";
 
 

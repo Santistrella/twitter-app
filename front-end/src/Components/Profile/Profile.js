@@ -2,6 +2,7 @@ import React from 'react';
 import './Profile.css';
 import covertweet from './covertweet.jpg';
 import profilepic from './profilepic.jpg';
+import {Tweets} from "../Tweet/Tweets/Tweets";
 
 export const Profile = () => {
     return (
@@ -30,6 +31,7 @@ export const Profile = () => {
             </div>
         </div>
         </div>
+
     );
 }
 

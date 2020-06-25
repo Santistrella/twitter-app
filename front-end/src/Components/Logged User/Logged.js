@@ -1,11 +1,10 @@
 import React, {Fragment} from 'react';
 
 import './Logged.css';
-import {TopNav} from "../TopNav/Topnav";
-import {Header} from "../Header/Header";
+import {TopNav} from "../Navigations/TopNav/Topnav";
+import {Header} from "../Navigations/Header/Header";
 import {BrowserRouter as Router, Redirect, Route} from "react-router-dom";
 import {Home} from "../Home/Home";
-import {Explore} from "../Explore/Explore";
 import {Profile} from "../Profile/Profile";
 import {Bookmarks} from "../Bookmarks/Bookmarks";
 import {Lists} from "../Lists/Lists";
