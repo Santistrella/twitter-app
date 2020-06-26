@@ -1,16 +1,31 @@
-import React, {Fragment} from 'react';
+import React, {useEffect, useState} from 'react';
 import './Home.css';
+import {TweetCreator} from "../Tweet/TweetCreator/TweetCreator";
+import {Tweets} from "../Tweet/Tweets/Tweets";
 
 
 
 
 
 export const Home = () => {
+
+    const [tweet, setTweet] = useState();
+    useEffect(() => {
+        fetch("http://localhost:5008/tweets")
+            .then(response => response.json())
+            .then(usersFromResponse => {
+                setTweet(usersFromResponse);
+            });
+    }, [])
+
     return (
-        <div className="column">
-        <div className="feed">
-            <h1>Home</h1>
-        </div>
+        <div className="Home">
+            <div className="feedContainer">
+            <TweetCreator />
+            <div className="tweets">
+                {tweet && tweet.map(tweet => <Tweets {...tweet} key={tweet.id}/> )}
+            </div>
+            </div>
         </div>
     );
 }

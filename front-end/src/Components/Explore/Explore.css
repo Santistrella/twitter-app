@@ -1,14 +1,7 @@
-
-.column {
+.mainExplore {
     display: flex;
-    position: relative;
-}
-
-.explore {
-    display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     align-items: flex-start;
-    background-color: #ffffff;
-    width: 100%;
-    padding: 10%;
+    margin-top: 40px;
 }

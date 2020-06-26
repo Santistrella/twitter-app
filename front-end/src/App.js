@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect} from 'react';
+import React, {useEffect, Fragment} from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -6,13 +6,9 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-import {Explore} from "./Components/Explore/Explore";
-import {Profile} from "./Components/Profile/Profile";
-import {Home} from "./Components/Home/Home";
-import {Header} from "./Components/Header/Header";
-import {News} from "./Components/Recommend/News";
-import {RegisterForm} from "./Components/RegisterForm/RegisterForm";
-import {TopNav} from "./Components/TopHeader/Topnav";
+import {Logged} from "./Components/Logged User/Logged";
+import {NoLog} from "./Components/NonLogged/NoLog";
+
 
 function App() {
 
@@ -21,17 +17,12 @@ function App() {
     });
 
   return (
-    <div className="App">
+    <Fragment>
       <Router>
-          <Header />
-          <TopNav />
-          <Route path={'/home'} component={Home} />
-            <Route exact path={'/explore'} component={Explore} />
-            <Route path={'/profile'} component={Profile} />
-            <Redirect exact from="/" to="explore" />
-            <News />
+            <Route exact path={'/'} component={NoLog} />
+            <Route path={'/user'} component={Logged} />
       </Router>
-    </div>
+    </Fragment>
   );
 }
 

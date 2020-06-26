@@ -1,14 +1,18 @@
-
-.column {
+.Home {
     display: flex;
-    position: relative;
+    z-index: 1;
 }
 
-.feed {
+.feedContainer {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: #ffffff;
     width: 100%;
-    padding: 10%;
+    margin-top: 55px;
+    background-color: #ffffff;
+    height: 100%;
+}
+
+@media screen and (min-width: 401px) and (max-width: 1024px) {
+    .feedContainer {border-left: none; border-right: none; }
 }

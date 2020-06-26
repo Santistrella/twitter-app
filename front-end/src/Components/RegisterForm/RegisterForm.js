@@ -40,6 +40,7 @@ export const RegisterForm = () => {
                         autoComplete="off"
                     />
                     <input
+                        type="password"
                         required="yes"
                         name="name"
                         placeholder="Verifica Contraseña"
