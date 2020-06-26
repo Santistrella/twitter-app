@@ -8,7 +8,7 @@ class Tweet extends Model
 {
     protected $table = 'tweets';
     protected $fillable = [
-        'user_id'
+        'user_id',
         'tweet',
         'media_url',
     ];
