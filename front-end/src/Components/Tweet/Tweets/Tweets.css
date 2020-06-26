@@ -1,0 +1,82 @@
+.tweetContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: stretch;
+    color: #282c34;
+    flex-direction: column;
+    padding: 10px;
+    border-top: 1px solid rgba(40, 44, 52, 0.13);
+    border-bottom: 1px solid rgba(40, 44, 52, 0.13);
+    position: relative;
+    cursor: pointer;
+    background-color: #ffffff;
+}
+
+.tweetContainer:hover:not(.active) {
+    background-color: rgba(187, 187, 187, 0.18);
+}
+
+.tweetContainer header {
+    display: flex;
+    flex-direction: row;
+}
+.tweetContainer header .profile-thumbnail {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+.tweetContainer header .profile-name {
+    display: flex;
+    margin-left: 10px;
+}
+
+.follow-btn button {
+    border: 0;
+    margin-left: 30px;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 30px;
+    border: none;
+    background-color: rgba(0, 172, 238, 0.75);
+    font-size: 15px;
+    font-family: Ubuntu;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+}
+.tweetContainer header h3, header h4 {
+    display: flex;
+    margin: 5px;
+}
+#inner p {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+#inner hr {
+    margin: 20px 0;
+    border-style: solid;
+    opacity: 0.1;
+}
+.tweetContainer footer {
+    display: flex;
+    flex-direction: row;
+}
+.cta button {
+    margin-left: 80px;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 30px;
+    border: none;
+    background-color: rgba(0, 172, 238, 0.66);
+    font-size: 15px;
+    font-family: Ubuntu;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    width: 70px;
+}
+
+@media screen and (min-width: 401px) and (max-width: 1024px) {
+    .cta button {width: 80px; margin-left: 20px}
+    .tweetContainer {border: 1px solid rgba(40, 44, 52, 0.13)}
+}
