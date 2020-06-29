@@ -19,10 +19,6 @@ function App() {
 
   return (
     <Fragment>
-      <Router>
-        <Route path={'/explore'} component={NoLog} />
-        <Route path={'/user'} component={Logged} />
-      </Router>
         {logged ? <Logged/> : <Nologged />}
     </Fragment>
   );
