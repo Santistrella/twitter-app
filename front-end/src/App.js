@@ -19,8 +19,8 @@ function App() {
   return (
     <Fragment>
       <Router>
-            <Route exact path={'/'} component={NoLog} />
-            <Route path={'/user'} component={Logged} />
+        <Route path={'/explore'} component={NoLog} />
+        <Route path={'/user'} component={Logged} />
       </Router>
     </Fragment>
   );
