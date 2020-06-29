@@ -17,6 +17,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//CREATE USER
+Route::post('/user', 'UsersController@create');
+//GET ALL USERS
+Route::get('/user', 'UsersController@findAll');
+//GET ONE USER BY ID
+Route::get('/user/{id}', 'UsersController@findById');
+//UPDATE ONE USER BY ID
+Route::put('/user/{id}', 'UsersController@update');
+//DELETE ONE USER BY ID
+Route::delete('/user/{id}', 'UsersController@delete');
+
 // CREATE TWEET
 Route::post('/tweet','TweetController@create');
 // FIND TWEET BY USER ID
