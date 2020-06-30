@@ -4,24 +4,15 @@ import Button from '@material-ui/core/Button';
 import { useForm, ErrorMessage } from "react-hook-form";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "./updateAction";
-import Api from "../../Api/index";
+import authService from '../../Services/auth.service'
 
 const UserDescription = ({ setStep }) => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, errors } = useForm();
   const { action, state } = useStateMachine(updateAction);
 
   const onSubmit = data => {
     action(data)
     console.log(state.data)
-
-
-  }
-
-  const goBack = () => {
-    setStep('ProfilePhoto')
-  };
-
-  const send = () => {
     var body = {
       name: state.data.firstName,
       surname: state.data.lastName,
@@ -29,24 +20,18 @@ const UserDescription = ({ setStep }) => {
       email: state.data.email
     }
     
-    Api.createResource(body, 'user').then((res) => {
-      console.log(res)
-    });
-/*
-    fetch("http://localhost/api/user", {
-      method: 'POST',
-      mode: 'cors',
-      body: JSON.stringify(body),
-      headers: {
-        'Content-Type': 'application/json',
-      }
-    }).then(response => {
+    authService.register(body).then(response => {
       console.log(response)
-    })*/
+    })
+
   }
 
+  const goBack = () => {
+    setStep('ProfilePhoto')
+  };
+
   return (
-    <div>
+    <form onSubmit = {handleSubmit(onSubmit)}>
       <TextareaAutosize 
         aria-label="minimum height" 
         rowsMin={3} 
@@ -55,9 +40,9 @@ const UserDescription = ({ setStep }) => {
       />
       <div>
         <Button onClick={goBack}>Previous</Button>
-        <Button onClick={send}>Done!</Button>
+        <Button type="submit">Done!</Button>
       </div>
-    </div>
+    </form>
   );
 };
 

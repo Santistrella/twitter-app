@@ -3,8 +3,11 @@ import './Profile.css';
 import covertweet from './covertweet.jpg';
 import profilepic from './profilepic.jpg';
 import {Tweets} from "../Tweet/Tweets/Tweets";
+import AuthService from "../../Services/auth.service";
 
 export const Profile = () => {
+    const currentUser = AuthService.getCurrentUser();
+
     return (
         <div className="ProfileSection">
         <div className="profileContainer">

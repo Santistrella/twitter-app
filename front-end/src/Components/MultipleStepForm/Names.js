@@ -5,10 +5,10 @@ import { useForm, ErrorMessage } from "react-hook-form";
 import { makeStyles } from '@material-ui/core/styles';
 import { useStateMachine } from "little-state-machine";
 import updateAction from "./updateAction";
+import './Forms.css'
 
 const Names = ({ setStep }) => {
-  //const { firstName, lastName, nickName } = formData;
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, errors } = useForm();
   const { action, state } = useStateMachine(updateAction);
 
   const onSubmit = data => {
@@ -31,16 +31,28 @@ const Names = ({ setStep }) => {
     <form onSubmit = {handleSubmit(onSubmit)}>
       <TextField
        label="First Name"
-       inputRef={register}  
+       inputRef={register({
+        required: "Required"
+        })} 
        name="FirstName"
+       className={classes.textField}
        defaultValue={state.data.firstName}
        />
+      {errors.FirstName && <p className={classes.textField}>{errors.FirstName.message}</p>} 
       <TextField 
         label="E-mail" 
         name="email" 
-        defaultValue={state.data.email} 
-        inputRef={register}  
+        defaultValue={state.data.email}
+        className={classes.textField}
+        inputRef={register({
+          required: "Required",
+          pattern: {
+            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+            message: "invalid email address"
+          }
+        })} 
       />
+      {errors.email && <p>{errors.email.message}</p>}
       <TextField
         label="Birthday"
         name="birtDate" 

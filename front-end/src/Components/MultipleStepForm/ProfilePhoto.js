@@ -10,7 +10,7 @@ import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate";
 import Grid from "@material-ui/core/Grid";
 
 const ProfilePhoto = ({ setStep }) => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, errors } = useForm();
   const { action, state } = useStateMachine(updateAction);
 
   const onSubmit = data => {

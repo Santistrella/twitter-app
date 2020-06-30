@@ -6,7 +6,7 @@ import updateAction from "./updateAction";
 import TextField from '@material-ui/core/TextField';
 
 const Contact = ({ setForm, formData, setStep }) => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, errors } = useForm();
   const { action, state } = useStateMachine(updateAction);
 
   const onSubmit = data => {
