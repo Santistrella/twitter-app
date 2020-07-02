@@ -12,6 +12,7 @@ import {Messages} from "../Messages/Messages";
 import {Notifications} from "../Notifs/Notifs";
 import {News} from "../News/News";
 import {ExploreUser} from "../Explore/ExploreUser";
+import {Explore} from "../Explore/Explore";
 
 
 
@@ -39,16 +40,7 @@ export const Nologged = () => {
     return (
         <div className="LoggedApp">
             <Router>
-                <Header />
-                <TopNav />
-                <Route path={'/home'} render={props => <Home {...props} logged={false}/>}></Route>
-                <Route path={'/explore'} component={ExploreUser} />
-                <Route path={'/profile'} component={Profile} />
-                <Route path={'/bookmarks'} component={Bookmarks}/>
-                <Route path={'/lists'} component={Lists}/>
-                <Route path={'/messages'} component={Messages}/>
-                <Route path={'/notifications'} component={Notifications} />
-                <News />
+                <Route path={'/'} component={Explore} />
             </Router>
         </div>
     );

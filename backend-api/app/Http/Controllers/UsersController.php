@@ -26,6 +26,14 @@ class UsersController extends Controller
         return response() ->json($user);
     }
 
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'email' => 'required|unique:posts|max:255',
+            'password' => 'required',
+        ]);
+    }
+
     public function findAll() {
         $users = User::all();
 
@@ -38,7 +46,7 @@ class UsersController extends Controller
         return response() ->json($users);
     }
 
-    public function findPins($id) {
+    public function findUsers($id) {
         $users = User::where('id', $id) ->first();
 
 
@@ -59,6 +67,6 @@ class UsersController extends Controller
 
         $User->update($dataFromTheUserToUpdate);
 
-        return response()->json($user);
+        return response()->json($User);
     }
 }
