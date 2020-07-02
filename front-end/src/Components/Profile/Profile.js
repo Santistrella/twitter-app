@@ -1,10 +1,21 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './Profile.css';
 import covertweet from './covertweet.jpg';
 import profilepic from './profilepic.jpg';
 import {Tweets} from "../Tweet/Tweets/Tweets";
 
 export const Profile = () => {
+
+    const [tweet, setTweet] = useState();
+    useEffect(() => {
+        fetch("http://localhost/api/tweet")
+            .then(response => response.json())
+            .then(usersFromResponse => {
+                setTweet(usersFromResponse);
+            });
+    }, [])
+
+
     return (
         <div className="ProfileSection">
         <div className="profileContainer">
@@ -28,6 +39,7 @@ export const Profile = () => {
                     <p><strong>  0</strong> Seguidores</p>
                     </div>
                 </div>
+                {tweet && tweet.map(tweet => <Tweets {...tweet} key={tweet.id}/> )}
             </div>
         </div>
         </div>

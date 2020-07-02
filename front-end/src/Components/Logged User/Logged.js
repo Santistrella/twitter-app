@@ -22,8 +22,8 @@ export const Logged = () => {
             <Router>
                 <Header />
                 <TopNav />
-                <Route exact path={'/home'} component={Home} />
-                <Route exact path={'/explore'} component={ExploreUser} />
+                <Route path={'/home'} render={props => <Home {...props} logged={true}/>}></Route>
+                <Route path={'/explore'} component={ExploreUser} />
                 <Route path={'/profile'} component={Profile} />
                 <Route path={'/bookmarks'} component={Bookmarks}/>
                 <Route path={'/lists'} component={Lists}/>

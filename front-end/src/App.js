@@ -1,12 +1,7 @@
 import React, {useEffect, Fragment} from 'react';
 import './App.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect
-} from "react-router-dom";
-import {Logged} from "./Components/Logged User/Logged";
+
+import {Logged, Nologged} from "./Components/Logged User/Logged";
 import {NoLog} from "./Components/NonLogged/NoLog";
 
 
@@ -15,13 +10,11 @@ function App() {
     useEffect(() => {
         document.title = "Twitter";
     });
+  const logged = true;
 
   return (
     <Fragment>
-      <Router>
-            <Route exact path={'/'} component={NoLog} />
-            <Route path={'/user'} component={Logged} />
-      </Router>
+        {logged ? <Logged/> : <NoLog />}
     </Fragment>
   );
 }

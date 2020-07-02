@@ -7,11 +7,11 @@ import {Tweets} from "../Tweet/Tweets/Tweets";
 
 
 
-export const Home = () => {
+export const Home = (props) => {
 
     const [tweet, setTweet] = useState();
     useEffect(() => {
-        fetch("http://localhost:5008/tweets")
+        fetch("http://localhost/api/tweet")
             .then(response => response.json())
             .then(usersFromResponse => {
                 setTweet(usersFromResponse);
