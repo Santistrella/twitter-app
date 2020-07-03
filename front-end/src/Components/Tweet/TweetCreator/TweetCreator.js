@@ -9,7 +9,7 @@ export const TweetCreator = () => {
 
 
     const handleFormSubmit = () => {
-        fetch("http://localhost:5008/tweets", {
+        fetch("http://localhost/api/tweet", {
             method: "post",
             mode: "cors",
             headers: {
