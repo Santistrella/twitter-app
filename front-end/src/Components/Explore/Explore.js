@@ -10,6 +10,7 @@ import {ExploreUser} from "./ExploreUser";
 
 
 
+
 export const Explore = () => {
     return (            
         <div className="mainExplore">

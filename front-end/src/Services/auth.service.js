@@ -1,7 +1,7 @@
 import Api from '../Api/index'
 
 const register = (body) => {
-  return Api.createPublicResource(body, 'user').then((response) => {
+  return Api.createPublicResource(body, 'register').then((response) => {
     console.log(response)
   });
 };
