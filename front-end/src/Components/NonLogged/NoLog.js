@@ -10,7 +10,7 @@ export const NoLog = () => {
     return (
         <div className="NologgedApp">
             <Router>
-                <Route exact path={'/'} component={Explore} />
+                <Route exact path={'/explore'} component={Explore} />
             </Router>
         </div>
     );

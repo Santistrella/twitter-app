@@ -7,7 +7,7 @@ import {Tweets} from "../Tweet/Tweets/Tweets";
 
 
 
-export const Home = () => {
+export const Home = (params) => {
 
     const [tweet, setTweet] = useState();
     useEffect(() => {
@@ -20,6 +20,7 @@ export const Home = () => {
 
     return (
         <div className="Home">
+            {params.logged && "Logged"}
             <div className="feedContainer">
             <TweetCreator />
             <div className="tweets">

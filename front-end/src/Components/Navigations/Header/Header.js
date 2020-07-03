@@ -5,13 +5,25 @@ import {
     Link
 } from "react-router-dom";
 import twitter from './twitter.png';
-
+import {Menu, MenuItem} from '@material-ui/core';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell, faListAlt, faUser, faEllipsisH, faHashtag, faBookmark, faEnvelope, faHome } from "@fortawesome/free-solid-svg-icons";
 import {faFeather} from "@fortawesome/free-solid-svg-icons/faFeather";
 
 export const Header = () => {
+    const [anchorEl, setAnchorEl] = useState(null);
 
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+    
+    const logOut = () => {
+
+    }
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
 
     return (
         <div className="header">
@@ -63,6 +75,17 @@ export const Header = () => {
                 </div>
                 <button className="tweetButton" id="Twtresponsive"><FontAwesomeIcon icon={faFeather} id="iconresponsive"/>
                 <span id="span">Twittear</span></button>
+                <button className="tweetButton" onClick={handleClick}>User</button>
+                <Menu
+                    id="simple-menu"
+                    anchorEl={anchorEl}
+                    keepMounted
+                    open={Boolean(anchorEl)}
+                    onClose={handleClose}
+                >
+                    <MenuItem>Añadir cuenta existente</MenuItem>
+                    <MenuItem onClick={logOut}>Cerrar session</MenuItem>
+                </Menu>
             </nav>
         </div>
 
