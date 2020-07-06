@@ -5,11 +5,17 @@ import {Tweets} from "../Tweets/Tweets";
 
 export const TweetCreator = () => {
 
-    const [data, setData] = useState({text: '', user: ''})
+    const initialState = {
+        id: '',
+        user_id: '1',
+        tweet: '',
+        media_url: ''
+    }
+    const [data, setData] = useState(initialState)
 
 
     const handleFormSubmit = () => {
-        fetch("http://localhost:5008/tweets", {
+        fetch("http://localhost/api/tweet", {
             method: "post",
             mode: "cors",
             headers: {
@@ -34,11 +40,27 @@ export const TweetCreator = () => {
 
             <div className="MakeTweet">
                 <input
+                    id="user_id"
                     type="text"
-                    onChange={e => handleChange('text', e.target.value)}
+                    onChange={e => handleChange('user_id', e.target.value)}
+                    placeholder="User ID"
+                    value={data.user_id}
+                />
+                <input
+                    id="tweet"
+                    type="text"
+                    onChange={e => handleChange('tweet', e.target.value)}
                     placeholder="¿Qué está pasando?"
-                    value={data.text}/>
-                <button onClick={handleFormSubmit}
+                    value={data.tweet}/>
+                <input
+                    id="media_url"
+                    type="text"
+                    onChange={e => handleChange('media_url', e.target.value)}
+                    placeholder="Media Url"
+                    value={data.media_url}
+                />
+                <img onChange={e => handleChange('media_url', e.target.value)} src={data.media_url} className="profile-thumbnail"/>
+                <button onClick={() => handleFormSubmit()}
                 >Twittear
                 </button>
             </div>

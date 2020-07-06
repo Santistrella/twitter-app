@@ -12,7 +12,6 @@ import {Messages} from "../Messages/Messages";
 import {Notifications} from "../Notifs/Notifs";
 import {News} from "../News/News";
 import {ExploreUser} from "../Explore/ExploreUser";
-import {Explore} from "../Explore/Explore";
 
 
 
@@ -31,16 +30,6 @@ export const Logged = () => {
                 <Route path={'/messages'} component={Messages}/>
                 <Route path={'/notifications'} component={Notifications} />
                 <News />
-            </Router>
-        </div>
-    );
-}
-
-export const Nologged = () => {
-    return (
-        <div className="LoggedApp">
-            <Router>
-                <Route path={'/'} component={Explore} />
             </Router>
         </div>
     );

@@ -63,15 +63,6 @@
 }
 
 .sidebarimage {
-    width: 250px;
-    height: 250px;
+    width: 230px;
+    height: 220px;
 }
-
-p {
-    color: #bf1650;
-  }
-  
-  p::before {
-    display: inline;
-    content: "⚠ ";
-  }

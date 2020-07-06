@@ -1,57 +1,69 @@
-import React, {useState} from 'react';
-import './Login.css';
-import twitter from './twitter.png';
-import {NavLink} from "react-router-dom";
-import { useForm } from "react-hook-form";
-import twittersidebar from './twittersidebar.png';
-import AuthService from '../../Services/auth.service'
-import { useAlert } from 'react-alert'
+import React, { useState } from "react";
+import "./Login.css";
+import twitter from "./twitter.png";
+import { NavLink } from "react-router-dom";
+import twittersidebar from "./twittersidebar.png";
 
 export const LoginForm = () => {
-    const { register, handleSubmit, errors } = useForm();
-    //const alert = useAlert()
+  const initialState = {
+    email: "",
+    password: "",
+    errorMessage: undefined,
+  };
 
-    const onSubmit = (data) => {
-        console.log(data)
-        //alert.show('Oh look, an alert!')
-        AuthService.login(data).then(response => {
-            console.log(response)
-            if (response.status > 400) {
+  const [data, setData] = useState(initialState);
 
-            }
-        })
-    };
+  const handleInputChange = (event) => {
+    setData({
+      ...data,
+      [event.target.name]: event.target.value,
+    });
+  };
 
-    return (
-        <div className="LoginContainer">
-            <div className="FormLogin">
-                <img src={twittersidebar} className="sidebarimage" />
-                <h3>Mira lo que está pasando en el mundo en este momento</h3>
-                <form onClick={handleSubmit(onSubmit)}  id="Form">
-                    <input
-                        name="name"
-                        placeholder="Teléfono, Correo o Usuario"
-                        autoComplete="off"
-                        ref={register({
-                            required: "This field is required"
-                        })}
-                    />
-                    {errors.name && <p>{errors.name.message}</p>}
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Contraseña"
-                        autoComplete="off"
-                        ref={register({
-                            required: "This field is required"
-                        })}
-                    />
-                    {errors.password && <p>{errors.password.message}</p>}
-                    <a href="#">¿Olvidaste tu contraseña?</a>
-                    <button className="loginButton" type="submit">Iniciar Sesiónn</button>
-                    <NavLink to="/register"><button className="tweetButton">Regístrate</button></NavLink>
-                </form>
-            </div>
+  const handleFormSubmit = () => {
+    fetch("http://localhost/api/login", {
+      method: "post",
+      mode: "cors",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      throw res;
+    });
+  };
+
+  return (
+    <div className="LoginContainer">
+      <div className="FormLogin">
+        <img src={twittersidebar} className="sidebarimage" />
+        <h3>Mira lo que está pasando en el mundo en este momento</h3>
+        <div id="Form">
+          <input
+            required="yes"
+            name="name"
+            placeholder="Teléfono, Correo o Usuario"
+            autoComplete="off"
+          />
+          <input
+            type="password"
+            required="yes"
+            name="name"
+            placeholder="Contraseña"
+            autoComplete="off"
+          />
+          <a href="#">¿Olvidaste tu contraseña?</a>
+          <button className="loginButton" onClick={() => handleFormSubmit()}>
+            Iniciar Sesión
+          </button>
+          <NavLink to="/register">
+            <button className="tweetButton">Regístrate</button>
+          </NavLink>
         </div>
-    );
-}
+      </div>
+    </div>
+  );
+};
