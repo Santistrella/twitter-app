@@ -1,82 +1,83 @@
-
 .ProfileSection {
-    display: flex;
-    position: relative;
-    z-index: 1;
-    border-left: 1px solid rgba(40, 44, 52, 0.13);
+  display: flex;
+  position: relative;
+  z-index: 1;
+  border-left: 1px solid rgba(40, 44, 52, 0.13);
 }
 
 .profileContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    background-color: #ffffff;
-    width: 100%;
-    height: 100vw;
-    padding-top: 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #ffffff;
+  width: 100%;
+  height: 100vw;
+  padding-top: 55px;
 }
 
 .profile {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-
 .CoverPicContainer img {
-    width: 100%;
-    height: 250px;
-    position: relative;
+  width: 100%;
+  height: 250px;
+  position: relative;
 }
 
 .ProfilePicContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .ProfilePicContainer button {
-    margin-left: 400px;
+  margin-left: 400px;
 }
 
 .ProfilePicContainer img {
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    top: 230px;
-    left: 10px;
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  top: 230px;
+  left: 10px;
 }
 
 .profileInfoContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    border-bottom: 3px solid;
-    padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 10px;
 }
 
 .profileInfoContainer h2 {
-    margin: 0;
+  margin: 0;
 }
 
 .profileInfoContainer h3 {
-    margin: 0;
+  margin: 0;
 }
 
 .profileInfoContainer p {
-    margin: auto;
+  margin: auto;
 }
 
 .profileInfoContainer p {
-    margin: 10px;
+  margin: 10px;
 }
 
 .followCounter {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.followCounter:hover:not(.active) {
+  text-decoration: underline;
 }

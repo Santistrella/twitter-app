@@ -1,22 +1,16 @@
-import React, {useEffect, Fragment} from 'react';
-import './App.css';
+import React, { useEffect, Fragment } from "react";
+import "./App.css";
 
-import {Logged, Nologged} from "./Components/Logged User/Logged";
-import {NoLog} from "./Components/NonLogged/NoLog";
-
+import { Logged, Nologged } from "./Components/Logged User/Logged";
+import { NoLog } from "./Components/NonLogged/NoLog";
 
 function App() {
-
-    useEffect(() => {
-        document.title = "Twitter";
-    });
+  useEffect(() => {
+    document.title = "Twitter";
+  });
   const logged = true;
 
-  return (
-    <Fragment>
-        {logged ? <Logged/> : <NoLog />}
-    </Fragment>
-  );
+  return <Fragment>{logged ? <Logged /> : <NoLog />}</Fragment>;
 }
 
 export default App;
