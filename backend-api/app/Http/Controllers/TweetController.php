@@ -10,7 +10,9 @@ class TweetController extends Controller
 {
     // CREATE TWEET - TESTED
     public function create(Request $request) {
+
         $data = $request->all();
+
         $tweet = Tweet::create([
             'user_id' => $data['user_id'],
             'tweet' => $data['tweet'],
@@ -20,7 +22,9 @@ class TweetController extends Controller
     }
     // FIND TWEET BY USER ID
     public function findTweetByUserId($user_id) {
+
         $tweet = Tweet::where('user_id', $user_id)->get();
+
         return response()->json($tweet);
     }
     // DELETE TWEET - TESTED

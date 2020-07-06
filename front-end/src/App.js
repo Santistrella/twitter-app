@@ -1,7 +1,7 @@
 import React, { useEffect, Fragment } from "react";
 import "./App.css";
 
-import { Logged, Nologged } from "./Components/Logged User/Logged";
+import { Logged } from "./Components/Logged User/Logged";
 import { NoLog } from "./Components/NonLogged/NoLog";
 
 function App() {
