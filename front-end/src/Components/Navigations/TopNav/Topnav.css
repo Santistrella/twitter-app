@@ -4,7 +4,7 @@
     top: 0;
     right: 0;
     background-color: #ffffff;
-    width: 70%;
+    width: 1105px;
     height: 55px;
     border-bottom: 1px solid rgba(40, 44, 52, 0.13);
     z-index: 2;
@@ -25,5 +25,4 @@
 @media screen and (min-width: 401px) and (max-width: 1024px) {
     .NavigationContainer {border-right: none;}
     .SearchBar {display: none}
-    .TopNavbar {width: 60vw}
 }

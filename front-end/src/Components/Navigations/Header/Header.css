@@ -31,17 +31,6 @@
     border-radius: 30px;
 }
 
-#Menu {
-    font-size: 19px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #282c34;
-    margin: 2px;
-    padding: 15px;
-    text-align: start;
-    border-radius: 30px;
-}
-
 #Navlinks.active {
     color: #00acee;
 }
@@ -138,6 +127,7 @@
     border-radius: 50px;
     color: white;
 }
+
 
 @media screen and (min-width: 401px) and (max-width: 1024px) {
     #span { display: none;}   /* hide it elsewhere */

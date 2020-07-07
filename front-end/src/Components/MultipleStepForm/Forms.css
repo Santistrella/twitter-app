@@ -1,8 +1,8 @@
-p {
+.errorsLogin {
     color: #bf1650;
   }
-  
-  p::before {
+
+.errorsLogin::before {
     display: inline;
     content: "⚠ ";
   }

@@ -1,5 +1,6 @@
 .LoggedApp {
     display: grid;
     grid-template-columns: 30% 35% 35%;
+    width: 100vw;
     height: 100vh;
 }
