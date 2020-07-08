@@ -8,7 +8,7 @@ function App() {
   useEffect(() => {
     document.title = "Twitter";
   });
-  const logged = false;
+  const logged = true;
 
   return <Fragment>{logged ? <Logged /> : <NoLog />}</Fragment>;
 }
