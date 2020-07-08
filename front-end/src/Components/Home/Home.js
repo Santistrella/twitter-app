@@ -7,11 +7,11 @@ import {Tweets} from "../Tweet/Tweets/Tweets";
 
 
 
-export const Home = (params) => {
+export const Home = (props) => {
 
     const [tweet, setTweet] = useState();
     useEffect(() => {
-        fetch("http://localhost:5008/tweets")
+        fetch("http://localhost/api/tweet")
             .then(response => response.json())
             .then(usersFromResponse => {
                 setTweet(usersFromResponse);
@@ -20,7 +20,6 @@ export const Home = (params) => {
 
     return (
         <div className="Home">
-            {params.logged && "Logged"}
             <div className="feedContainer">
             <TweetCreator />
             <div className="tweets">

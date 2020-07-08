@@ -1,5 +1,6 @@
 .Home {
     display: flex;
+    width: 100%;
     z-index: 1;
 }
 
@@ -8,11 +9,17 @@
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
+    box-sizing: border-box;
     margin-top: 55px;
     background-color: #ffffff;
     height: 100%;
+    border-left: 1px solid rgba(40, 44, 52, 0.13);
+}
+
+.tweets {
+    width: 100%;
 }
 
 @media screen and (min-width: 401px) and (max-width: 1024px) {
-    .feedContainer {border-left: none; border-right: none; }
+    .feedContainer {border-left: none; border-right: none; margin-left: 39px;}
 }
