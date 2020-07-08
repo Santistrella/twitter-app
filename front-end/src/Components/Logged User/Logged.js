@@ -1,5 +1,4 @@
 import React, {Fragment} from 'react';
-
 import './Logged.css';
 import {TopNav} from "../Navigations/TopNav/Topnav";
 import {Header} from "../Navigations/Header/Header";
@@ -12,7 +11,7 @@ import {Messages} from "../Messages/Messages";
 import {Notifications} from "../Notifs/Notifs";
 import {News} from "../News/News";
 import {ExploreUser} from "../Explore/ExploreUser";
-
+import EditProfile from "../Profile/EditProfile/EditProfile"
 
 
 
@@ -24,7 +23,7 @@ export const Logged = () => {
                 <TopNav />
                 <Route path={'/home'} render={props => <Home {...props} logged={true}/>}></Route>
                 <Route path={'/explore'} component={ExploreUser} />
-                <Route path={'/profile'} component={Profile} />
+                <Route path={'/profile/:id'} component={Profile} />
                 <Route path={'/bookmarks'} component={Bookmarks}/>
                 <Route path={'/lists'} component={Lists}/>
                 <Route path={'/messages'} component={Messages}/>
