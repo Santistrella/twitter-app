@@ -9,15 +9,17 @@ import { useAlert } from 'react-alert'
 
 export const LoginForm = () => {
     const { register, handleSubmit, errors } = useForm();
-    //const alert = useAlert()
+    const alert = useAlert()
 
     const onSubmit = (data) => {
         console.log(data)
-        //alert.show('Oh look, an alert!')
+        
         AuthService.login(data).then(response => {
             console.log(response)
             if (response.status > 400) {
-
+                alert.show('Oh look, an alert!')
+            } else {
+                alert.show('suces')
             }
         })
     };

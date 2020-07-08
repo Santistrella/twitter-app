@@ -9,10 +9,12 @@ const register = (body) => {
 const login = (data) => {
   return Api.sendRequest('login', {method: 'POST', body: data})
     .then((response) => {
-      if (response.data.accessToken) {
+      console.log('----------')
+      console.log(response)
+      if (response.access_token) {
         localStorage.setItem("user", JSON.stringify(response.data));
       }
-      return response.data;
+      return response;
     });
 };
 

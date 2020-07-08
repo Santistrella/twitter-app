@@ -36,13 +36,12 @@ const sendRequest = (resourceName, userOptions = {}, id) => {
   return fetch(url, options).then(responseObject => {
     console.log(responseObject)
     if (responseObject.status > 400) {
-      console.log('ee')
-      return responseObject.json()
+      return responseObject
     } else if (responseObject.status == 200) {
-      return responseObject.json()
+      return responseObject
     }
   }).then(x => {
-    console.log(x)
+    return x
   });
 }
 
