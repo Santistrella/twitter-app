@@ -55,6 +55,10 @@ export const LoginForm = () => {
           </button>
           <button className="tweetButton">Regístrate</button>
         </form>
+          <NavLink to="/register">
+            <button className="tweetButton">Regístrate</button>
+          </NavLink>
+        </div>
       </div>
     </div>
   );
