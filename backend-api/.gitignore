@@ -14,4 +14,5 @@ yarn-error.log
 .idea
 /storage/
 composer.lock
-backend-api/bootstrap/cache
+bootstrap/cache
+
