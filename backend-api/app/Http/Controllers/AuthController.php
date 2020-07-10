@@ -32,14 +32,14 @@ class AuthController extends Controller
         $credentials = request(['email', 'password']);
 
         $token = auth()->attempt($credentials);
-        ($token);
-        if (is_null($token)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+
+        if ($token === false) {
+            return response()->json(['error' => 'Unauthorized', 'code' => '401'], 401);
+        } else {
+            return $this->respondWithToken($token);
         }
-
-        return $this->respondWithToken($token);
     }
-
+    //Revisar el código de login para tener la misma estructura //
     /**
      * Get the authenticated User.
      *
