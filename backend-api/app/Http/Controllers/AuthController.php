@@ -32,7 +32,7 @@ class AuthController extends Controller
         $credentials = request(['email', 'password']);
 
         $token = auth()->attempt($credentials);
-        dd($token);
+        ($token);
         if (is_null($token)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }

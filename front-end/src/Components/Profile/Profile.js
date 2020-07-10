@@ -22,6 +22,7 @@ export const Profile = () => {
       });
   }, []);
 
+  console.log("edit open", openEditModal)
   return (
     <div className="ProfileSection">
       <div className="profileContainer">
@@ -32,7 +33,7 @@ export const Profile = () => {
           <div className="ProfilePicContainer">
             <img alt="profile" src={profilepic} className="profilepic" />
             <button className="loginButton" onClick={() => setOpenEditModal(true)}>Editar Perfil</button>
-            <EditProfile open={openEditModal} handleClose={() => setOpenEditModal(false)}/>
+            {openEditModal && <EditProfile open={openEditModal} handleClose={() => setOpenEditModal(false)}/>}
           </div>
           <div className="profileInfoContainer">
             <h2>Example Profile</h2>

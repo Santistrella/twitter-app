@@ -11,7 +11,6 @@ import {Messages} from "../Messages/Messages";
 import {Notifications} from "../Notifs/Notifs";
 import {News} from "../News/News";
 import {ExploreUser} from "../Explore/ExploreUser";
-import EditProfile from "../Profile/EditProfile/EditProfile"
 
 
 
