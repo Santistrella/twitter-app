@@ -5,7 +5,7 @@ import { Tweets } from "../Tweet/Tweets/Tweets";
 import authHeader from "../../Api/authHeader";
 import { useParams } from "react-router-dom";
 
-export const Home = (props) => {
+export const Home = () => {
   const [tweet, setTweet] = useState();
   useEffect(() => {
     fetch("http://localhost/api/tweet")

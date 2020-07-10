@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Profile.css";
 import covertweet from "./covertweet.jpg";
 import profilepic from "./profilepic.jpg";
-import { Tweets } from "../Tweet/Tweets/Tweets";
 import { ActivityTab } from "../Navigations/ActivityTab/ActivityTab";
-import authHeader from "../../Api/authHeader";
 import EditProfile from "./EditProfile/EditProfile";
 import AuthService from "../../Services/auth.service";
 import { useParams } from "react-router-dom";
@@ -76,16 +74,15 @@ export const Profile = () => {
             <p>{userData.description}</p>
             <div className="followCounter">
               <p>
-                <strong>0</strong> Siguiendo{" "}
+                <strong>0</strong> Siguiendo
               </p>
               <br />
               <p>
-                <strong> 0</strong> Seguidores
+                <strong>0</strong> Seguidores
               </p>
             </div>
           </div>
           <ActivityTab />
-          {tweet && tweet.map((tweet) => <Tweets {...tweet} key={tweet.id} />)}
         </div>
       </div>
     </div>
