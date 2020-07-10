@@ -1,4 +1,4 @@
-import Api from "../Api/index";
+import Api from '../Api/index'
 
 const register = (body) => {
   return Api.createPublicResource(body, "register").then((response) => {

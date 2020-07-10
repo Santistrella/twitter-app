@@ -4,12 +4,19 @@ import covertweet from "./covertweet.jpg";
 import profilepic from "./profilepic.jpg";
 import { Tweets } from "../Tweet/Tweets/Tweets";
 import { ActivityTab } from "../Navigations/ActivityTab/ActivityTab";
+import authHeader from "../../Api/authHeader";
+import EditProfile from "./EditProfile/EditProfile";
 import AuthService from "../../Services/auth.service";
 
 export const Profile = () => {
   const currentUser = AuthService.getCurrentUser();
 
   const [tweet, setTweet] = useState();
+  const [openEditModal, setOpenEditModal] = useState(false);
+
+
+
+
   useEffect(() => {
     fetch("http://localhost/api/tweet")
       .then((response) => response.json())
@@ -17,6 +24,7 @@ export const Profile = () => {
         setTweet(usersFromResponse);
       });
   }, []);
+
   return (
     <div className="ProfileSection">
       <div className="profileContainer">
@@ -26,7 +34,8 @@ export const Profile = () => {
           </div>
           <div className="ProfilePicContainer">
             <img alt="profile" src={profilepic} className="profilepic" />
-            <button className="loginButton">Editar Perfil</button>
+            <button className="loginButton" onClick={() => setOpenEditModal(true)}>Editar Perfil</button>
+            {openEditModal && <EditProfile open={openEditModal} handleClose={() => setOpenEditModal(false)}/>}
           </div>
           <div className="profileInfoContainer">
             <h2>Example Profile</h2>
