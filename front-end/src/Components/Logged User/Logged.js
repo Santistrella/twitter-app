@@ -21,7 +21,7 @@ export const Logged = () => {
         <Header />
         <TopNav />
         <Route exact path={"/home"} component={Home} />
-        <Route exact path={"/explore"} component={ExploreUser} />
+        <Route exact path={"/explore/user"} component={ExploreUser} />
         <Route path={"/profile/:id"} component={Profile} />
         <Route path={"/bookmarks"} component={Bookmarks} />
         <Route path={"/lists"} component={Lists} />

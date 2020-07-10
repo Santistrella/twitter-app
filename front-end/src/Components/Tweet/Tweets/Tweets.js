@@ -9,14 +9,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import profilepic from "./profilepic.jpg";
 
-export const Tweets = (tweet) => {
+export const Tweets = (tweet, userData) => {
   return (
     <div className="tweetContainer">
       <header>
         <img src={profilepic} className="profile-thumbnail" />
         <div className="profile-name">
-          <h3>Nombre</h3>
-          <p>@usuario</p>
+          <h3>{userData.name}</h3>
+          <p>{userData.email}</p>
         </div>
       </header>
       <div id="inner">

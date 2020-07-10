@@ -7,7 +7,6 @@ import { ActivityTab } from "../Navigations/ActivityTab/ActivityTab";
 import AuthService from "../../Services/auth.service";
 import { useParams } from "react-router-dom";
 import authHeader from "../../Api/authHeader";
-import getPrivateResource from "../../Api/index";
 
 export const Profile = () => {
   const currentUser = AuthService.getCurrentUser();
@@ -66,10 +65,7 @@ export const Profile = () => {
             <br />
             <h3>{userData.email}</h3>
             <br />
-            <p>
-              #Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-              nec congue nisl.
-            </p>
+            <p>{userData.description}</p>
             <div className="followCounter">
               <p>
                 <strong>0</strong> Siguiendo{" "}

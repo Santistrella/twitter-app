@@ -6,12 +6,16 @@ const register = (body) => {
   });
 };
 
-const login = (data) => {
+const login = (data, onSuccess) => {
   return Api.sendRequest("login", { method: "POST", body: data }).then(
     (response) => {
       console.log(response);
       if (response.access_token) {
         localStorage.setItem("user", JSON.stringify(response.access_token));
+        onSuccess();
+        return;
+      } else {
+        console.log("not logged");
       }
       return response.data;
     }

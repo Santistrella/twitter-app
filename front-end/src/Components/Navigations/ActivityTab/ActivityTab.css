@@ -1,7 +1,17 @@
+.tabs {
+  color: red;
+  background-color: red;
+}
+
+
+
+/* old tab hardcoded css
+
 .ActivityTab {
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  height: 48px border-box;
 }
 
 .ActTabContainer {
@@ -38,3 +48,4 @@
 #ActTabNavLink.active {
   border-bottom: 3px solid #00acee;
 }
+ */
