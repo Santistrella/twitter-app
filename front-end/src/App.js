@@ -15,7 +15,7 @@ function App() {
     useEffect(() => {
         document.title = "Twitter";
     });
-  const logged = true;
+  const logged = false;
 
   return (
     <Fragment>

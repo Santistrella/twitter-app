@@ -12,10 +12,10 @@ class Tweet extends Model
         'tweet',
         'media_url',
     ];
-    /*
+
     public function user()
     {
         return $this->belongsTo('App\Models\Users');
     }
-    */
+
 }

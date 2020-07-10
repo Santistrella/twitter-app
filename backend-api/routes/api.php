@@ -30,12 +30,11 @@ Route::delete('/user/{id}', 'UsersController@delete');
 
 
 
-//REGISTER AND LOGIN AND LOGOUT AUTHENTICATED USERS
-
+// REGISTER AND LOGIN AND LOGOUT AUTHENTICATED USERS
 Route::post('login', 'AuthController@login');
 Route::post('register', 'AuthController@register');
 
-
+// GROUP ROUTES JWT
 Route::group([
 
     'middleware' => 'auth.jwt',
