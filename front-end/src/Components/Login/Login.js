@@ -17,9 +17,9 @@ export const LoginForm = () => {
         AuthService.login(data).then(response => {
             console.log(response)
             if (response.status > 400) {
-                alert.show('Oh look, an alert!')
+                alert.error('Error!')
             } else {
-                alert.show('suces')
+                alert.show('Sucess!')
             }
         })
     };

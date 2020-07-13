@@ -23,7 +23,6 @@ function App() {
     timeout: 50000,
     offset: '30px',
     transition: transitions.SCALE,
-    type: 'error'
   }
 
   return (
