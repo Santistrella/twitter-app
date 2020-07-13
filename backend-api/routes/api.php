@@ -28,16 +28,20 @@ Route::put('/user/{id}', 'UsersController@update');
 //DELETE ONE USER BY ID
 Route::delete('/user/{id}', 'UsersController@delete');
 
-//LOGIN AND LOGOUT AUTHENTICATED USERS
+
+
+//REGISTER AND LOGIN AND LOGOUT AUTHENTICATED USERS
+
+Route::post('login', 'AuthController@login');
+Route::post('register', 'AuthController@register');
+
 
 Route::group([
 
-    'middleware' => 'api',
-    'prefix' => 'auth'
+    'middleware' => 'auth.jwt',
 
 ], function ($router) {
 
-    Route::post('login', 'AuthController@login');
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
@@ -54,3 +58,4 @@ Route::delete('/tweet/{id}','TweetController@delete');
 Route::get('/tweet/','TweetController@findAll');
 // FIND TWEET BY TWEET ID
 Route::get('/tweet/{id}','TweetController@findTweetById');
+
