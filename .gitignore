@@ -24,3 +24,6 @@ storage/logs/
 # IDE files
 .idea/
 dbdata/
+
+/backend-api/bootstrap/cache/
+/backend-api/storage/framework/cache/

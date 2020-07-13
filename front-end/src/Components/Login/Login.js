@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
+import {NavLink, useHistory} from "react-router-dom";
 import { useForm } from "react-hook-form";
 import twittersidebar from "./twittersidebar.png";
 import AuthService from "../../Services/auth.service";
@@ -7,11 +8,16 @@ import AuthService from "../../Services/auth.service";
 export const LoginForm = () => {
   const { register, handleSubmit, errors } = useForm();
   //const alert = useAlert()
+  const history = useHistory();
+
+  const onSuccessLogin = () => {
+    history.push("/home");
+  };
 
   const onSubmit = (data) => {
     console.log(data);
     //alert.show('Oh look, an alert!')
-    AuthService.login(data).then((response) => {
+    AuthService.login(data, onSuccessLogin).then((response) => {
       console.log(response);
     });
   };
@@ -49,7 +55,10 @@ export const LoginForm = () => {
           </button>
           <button className="tweetButton">Regístrate</button>
         </form>
+          <NavLink to="/register">
+            <button className="tweetButton">Regístrate</button>
+          </NavLink>
+        </div>
       </div>
-    </div>
   );
 };

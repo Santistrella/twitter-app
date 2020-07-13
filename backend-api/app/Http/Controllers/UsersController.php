@@ -28,6 +28,7 @@ class UsersController extends Controller
             'name' => $data['name'],
             'surname' => $data['surname'],
             'email' => $data['email'],
+            'description' => $data['description'],
             'password' => Hash::make($request->newPassword),
         ]);
         $user->save();

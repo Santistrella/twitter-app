@@ -45,3 +45,4 @@ $app->singleton(
 |
 */
 return $app;
+

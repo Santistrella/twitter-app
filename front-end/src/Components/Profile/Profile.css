@@ -54,23 +54,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 10px;
+  padding: 20px;
 }
 
 .profileInfoContainer h2 {
-  margin: 0;
+  margin: 5px;
 }
 
 .profileInfoContainer h3 {
-  margin: 0;
-}
-
-.profileInfoContainer p {
-  margin: auto;
+  margin: 5px;
 }
 
 .profileInfoContainer p {
   margin: 10px;
+  margin-left: 5px;
 }
 
 .followCounter {
