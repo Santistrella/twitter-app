@@ -59,7 +59,8 @@ class TweetController extends Controller
     }
     // FIND ALL TWEETS - TESTED
     public function findAll() {
-        $tweet = Tweet::all();
+        $tweet = Tweet::orderBy('id','desc')->get();
+        //$tweet = Tweet::all();
         return response()->json($tweet);
     }
     // FIND TWEET BY TWEET ID
