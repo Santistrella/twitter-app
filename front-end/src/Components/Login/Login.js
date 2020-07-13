@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { useHistory } from "react-router-dom";
+import {NavLink, useHistory} from "react-router-dom";
 import { useForm } from "react-hook-form";
 import twittersidebar from "./twittersidebar.png";
 import AuthService from "../../Services/auth.service";
@@ -60,6 +60,5 @@ export const LoginForm = () => {
           </NavLink>
         </div>
       </div>
-    </div>
   );
 };
