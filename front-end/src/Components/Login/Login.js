@@ -4,10 +4,11 @@ import {NavLink, useHistory} from "react-router-dom";
 import { useForm } from "react-hook-form";
 import twittersidebar from "./twittersidebar.png";
 import AuthService from "../../Services/auth.service";
+import { useAlert} from "react-alert";
 
 export const LoginForm = () => {
   const { register, handleSubmit, errors } = useForm();
-  const alert = useAlert()
+  const alert = useAlert();
   const history = useHistory();
 
   const onSuccessLogin = () => {
