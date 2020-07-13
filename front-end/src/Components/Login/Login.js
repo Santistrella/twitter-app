@@ -19,7 +19,9 @@ export const LoginForm = () => {
             if (response.status > 400) {
                 alert.error('Error!')
             } else {
-                alert.show('Sucess!')
+                alert.show('Sucess!', {
+                    type: 'success'
+                })
             }
         })
     };
