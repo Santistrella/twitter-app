@@ -7,7 +7,7 @@ import AuthService from "../../Services/auth.service";
 
 export const LoginForm = () => {
   const { register, handleSubmit, errors } = useForm();
-  //const alert = useAlert()
+  const alert = useAlert()
   const history = useHistory();
 
   const onSuccessLogin = () => {
@@ -16,9 +16,15 @@ export const LoginForm = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    //alert.show('Oh look, an alert!')
     AuthService.login(data, onSuccessLogin).then((response) => {
       console.log(response);
+      if (response.status > 400) {
+        alert.error('Error!')
+      } else {
+          alert.show('Sucess!', {
+              type: 'success'
+          })
+      }
     });
   };
 
