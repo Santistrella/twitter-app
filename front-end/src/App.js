@@ -1,15 +1,36 @@
-import React, { useEffect, Fragment } from "react";
-import "./App.css";
->>>>>>>>> Temporary merge branch 2
+import React, { useEffect } from 'react';
+import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
+import {Logged, Nologged} from "./Components/Logged User/Logged";
+import {NoLog} from "./Components/NonLogged/NoLog";
+import { transitions, positions, Provider as AlertProvider } from 'react-alert'
+import {AlertTemplate} from './Components/Alerts/AlertTemplate'
 
-import { Logged } from "./Components/Logged User/Logged";
-import { NoLog } from "./Components/NonLogged/NoLog";
-import authHeader from "./Api/authHeader";
 
 function App() {
+
+  useEffect(() => {
+      document.title = "Twitter";
+  });
+  const logged = true;
+  const options = {
+    position: positions.BOTTOM_CENTER,
+    timeout: 50000,
+    offset: '30px',
+    transition: transitions.SCALE,
+  }
   const token = localStorage.getItem("user");
 
-  return <Fragment>{token ? <Logged /> : <NoLog />}</Fragment>;
+  return (
+    <AlertProvider template={AlertTemplate} {...options}>
+      {token ? <Logged /> : <NoLog />}
+    </AlertProvider>
+    );
 }
 
 export default App;

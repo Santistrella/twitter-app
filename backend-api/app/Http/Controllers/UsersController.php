@@ -56,10 +56,11 @@ class UsersController extends Controller
         return response()->json("User deleted");
     }
 
-    public function update(Request $request, $id) {
-        $User = User::where('id', $id) ->first();
+    public function update(Request $request) {
+
+        $user = $this->getAuthUser();
         $dataFromTheUserToUpdate = $request->all();
-        $User->update($dataFromTheUserToUpdate);
-        return response()->json($User);
+        $user->update($dataFromTheUserToUpdate);
+        return response()->json($user);
     }
 }

@@ -44,7 +44,7 @@ Route::group([
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
-    Route::put('/user/{id}', 'AuthController@update');
+    Route::patch('/user/{id}', 'UsersController@update');
 
     // CREATE TWEET
     Route::post('/tweet','TweetController@create');
