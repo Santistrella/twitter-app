@@ -15,6 +15,7 @@ class AuthController extends Controller
             'surname' => $request->surname,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'description' => "",
         ]);
         //auth es un guard proporcionado por Laravel que llamará al provider que hemos registrado antes.
         $token = auth()->login($user); // al llamar a la función login() generamos un nuevo token

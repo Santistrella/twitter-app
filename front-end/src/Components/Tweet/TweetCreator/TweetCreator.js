@@ -4,18 +4,19 @@ import "./TweetCreator.css";
 export const TweetCreator = () => {
   const initialState = {
     id: "",
-    user_id: "1",
     tweet: "",
     media_url: "",
   };
   const [data, setData] = useState(initialState);
 
   const handleFormSubmit = () => {
+    const token = localStorage.getItem("user");
     fetch("http://localhost/api/tweet", {
       method: "post",
       mode: "cors",
       headers: {
         "content-type": "application/json",
+        authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(data),
     }).then((res) => {
@@ -33,13 +34,6 @@ export const TweetCreator = () => {
   return (
     <div className="MakeTweet">
       <input
-        id="user_id"
-        type="text"
-        onChange={(e) => handleChange("user_id", e.target.value)}
-        placeholder="User ID"
-        value={data.user_id}
-      />
-      <input
         id="tweet"
         type="text"
         onChange={(e) => handleChange("tweet", e.target.value)}
@@ -52,11 +46,6 @@ export const TweetCreator = () => {
         onChange={(e) => handleChange("media_url", e.target.value)}
         placeholder="Media Url"
         value={data.media_url}
-      />
-      <img
-        onChange={(e) => handleChange("media_url", e.target.value)}
-        src={data.media_url}
-        className="profile-thumbnail"
       />
       <button onClick={() => handleFormSubmit()}>Twittear</button>
     </div>

@@ -14,8 +14,12 @@ class TweetController extends Controller
     // CREATE TWEET - TESTED
     public function create(Request $request) {
         $data = $request->all();
+
+        $user = $this->getAuthUser();
+
+        $data["user_id"] = $user->id;
         $tweetValidator = Validator::make($data, [
-            'user_id' => ['required', 'integer', 'max:11'],
+            'user_id' => ['required', 'integer'],
             'tweet' => [Rule::requiredIf(function () use ($data) {
                 if (empty($data['media_url'])) {
                     return true; // REQUIRED
