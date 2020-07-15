@@ -1,4 +1,4 @@
-import React, {useEffect, Fragment} from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -17,7 +17,7 @@ function App() {
   useEffect(() => {
       document.title = "Twitter";
   });
-  const logged = false;
+  const logged = true;
   const options = {
     position: positions.BOTTOM_CENTER,
     timeout: 50000,

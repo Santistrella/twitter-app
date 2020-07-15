@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import authHeader from "../../../Api/authHeader";
 import { useParams, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { makeStyles } from '@material-ui/core/styles';
@@ -47,12 +46,14 @@ export default function EditProfile(props) {
 
     const {id} = useParams();
 console.log("id", id)
-    React.useEffect(() => { fetch(`http://localhost/api/user/${id}`, {
+    React.useEffect(() => {
+        const token = localStorage.getItem('user');
+        fetch(`http://localhost/api/user/${id}`, {
         method: "get",
         mode: "cors",
         headers: {
             "content-type": "application/json",
-            "headers": authHeader(),
+            "authorization": "Bearer " + token,
         },
     }).then(res => {
         if (res.ok) {
@@ -72,13 +73,14 @@ console.log("id", id)
     };
 
     const handleFormSubmit = () => {
+        const token = localStorage.getItem('user');
         setIsSubmitting(true)
         fetch(`http://localhost/api/user/${id}`, {
-            method: "update",
+            method: "put",
             mode: "cors",
             headers: {
                 "content-type": "application/json",
-                "headers": authHeader(),
+                "authorization": "Bearer " + token,
             },
             body: JSON.stringify(userData),
         }).then(res => {

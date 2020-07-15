@@ -3,6 +3,7 @@ import Api from '../Api/index'
 const register = (body) => {
   return Api.createPublicResource(body, "register").then((response) => {
     console.log(response);
+
   });
 };
 
@@ -25,9 +26,8 @@ const login = (data, onSuccess) => {
 const logout = () => {
   localStorage.removeItem("user");
 };
-
 const getCurrentUser = () => {
-  return JSON.parse(localStorage.getItem("user"));
+  return localStorage.getItem("user");
 };
 
 export default { register, login, logout, getCurrentUser };
