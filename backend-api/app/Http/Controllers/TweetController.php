@@ -46,6 +46,7 @@ class TweetController extends Controller
             'tweet' => $data['tweet'],
             'media_url' => $data['media_url']
         ]);
+
         return response()->json($tweet);
     }
     // FIND TWEET BY USER ID

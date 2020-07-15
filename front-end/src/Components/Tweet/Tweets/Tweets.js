@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Tweets.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -8,8 +8,39 @@ import {
   faShareSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import profilepic from "./profilepic.jpg";
+import userEvent from "@testing-library/user-event";
 
-export const Tweets = (tweet, userData) => {
+export const Tweets = (tweet) => {
+  const [userData, setUserData] = useState(undefined);
+  const token = localStorage.getItem("user");
+  const id = tweet.user_id;
+
+  useEffect(() => {
+    fetch(`http://localhost/api/user/${id}`, {
+      method: "get",
+      mode: "cors",
+      headers: {
+        "content-type": "application/json",
+        headers: `Bearer ${token}`,
+      },
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw res;
+      })
+      .then((resJson) => {
+        setUserData(resJson);
+      });
+  }, [id]);
+
+  console.log(userData);
+
+  if (userData === undefined) {
+    return <div />;
+  }
+
   return (
     <div className="tweetContainer">
       <header>
