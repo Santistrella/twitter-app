@@ -4,7 +4,6 @@ import "./TweetCreator.css";
 export const TweetCreator = () => {
   const initialState = {
     id: "",
-    user_id: "1",
     tweet: "",
     media_url: "",
   };

@@ -1,9 +1,11 @@
-import Api from '../Api/index'
+import Api from "../Api/index";
 
 const register = (body) => {
   return Api.createPublicResource(body, "register").then((response) => {
     console.log(response);
-
+    if (response.access_token) {
+      localStorage.setItem("user", response.access_token);
+    }
   });
 };
 
@@ -12,7 +14,7 @@ const login = (data, onSuccess) => {
     (response) => {
       console.log(response);
       if (response.access_token) {
-        localStorage.setItem("user", JSON.stringify(response.access_token));
+        localStorage.setItem("user", response.access_token);
         onSuccess();
         return;
       } else {

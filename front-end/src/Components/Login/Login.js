@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./Login.css";
-import {NavLink, useHistory} from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import twittersidebar from "./twittersidebar.png";
 import AuthService from "../../Services/auth.service";
-import { useAlert} from "react-alert";
+import { useAlert } from "react-alert";
 
 export const LoginForm = () => {
   const { register, handleSubmit, errors } = useForm();
@@ -20,13 +20,6 @@ export const LoginForm = () => {
     //alert.show('Oh look, an alert!')
     AuthService.login(data, onSuccessLogin).then((response) => {
       console.log(response);
-      if (response.status > 400) {
-        alert.error('Error!')
-      } else {
-          alert.show('Sucess!', {
-              type: 'success'
-          })
-      }
     });
   };
 
