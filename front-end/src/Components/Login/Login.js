@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { useHistory } from "react-router-dom";
+import { useHistory, NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import twittersidebar from "./twittersidebar.png";
 import AuthService from "../../Services/auth.service";
@@ -55,10 +55,9 @@ export const LoginForm = () => {
           </button>
           <button className="tweetButton">Regístrate</button>
         </form>
-          <NavLink to="/register">
-            <button className="tweetButton">Regístrate</button>
-          </NavLink>
-        </div>
+        <NavLink to="/register">
+          <button className="tweetButton">Regístrate</button>
+        </NavLink>
       </div>
     </div>
   );

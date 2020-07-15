@@ -47,10 +47,11 @@ Route::group([
     Route::post('me', 'AuthController@me');
     Route::put('/user/{id}', 'AuthController@update');
 
+    // CREATE TWEET
+    Route::post('/tweet','TweetController@create');
+
 });
 
-// CREATE TWEET
-Route::post('/tweet','TweetController@create');
 // FIND TWEET BY USER ID
 Route::get('/tweet/user/{user_id}','TweetController@findTweetByUserId');
 // DELETE TWEET

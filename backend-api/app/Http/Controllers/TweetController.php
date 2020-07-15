@@ -13,11 +13,10 @@ class TweetController extends Controller
 
         $data = $request->all();
 
-        $tweet = Tweet::create([
-            'user_id' => $data['user_id'],
-            'tweet' => $data['tweet'],
-            'media_url' => $data['media_url']
-        ]);
+        $user = $this->getAuthUser();
+        $tweet = new Tweet($request->only(["tweet", "media_url"]));
+
+        $user->tweets()->save($tweet);
         return response()->json($tweet);
     }
     // FIND TWEET BY USER ID
