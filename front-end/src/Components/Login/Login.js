@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Login.css";
-import { NavLink, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import twittersidebar from "./twittersidebar.png";
 import AuthService from "../../Services/auth.service";
 import { useAlert } from "react-alert";
+import { RegisterModal } from "../Register/RegisterModal/RegisterModal";
 
 export const LoginForm = () => {
   const { register, handleSubmit, errors } = useForm();
@@ -54,11 +55,8 @@ export const LoginForm = () => {
           <button className="loginButton" type="submit">
             Iniciar Sesión
           </button>
-          <button className="tweetButton">Regístrate</button>
+          <RegisterModal />
         </form>
-        <NavLink to="/register">
-          <button className="tweetButton">Regístrate</button>
-        </NavLink>
       </div>
     </div>
   );
