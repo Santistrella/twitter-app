@@ -8,7 +8,6 @@ import {
   faShareSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import profilepic from "./profilepic.jpg";
-import userEvent from "@testing-library/user-event";
 
 export const Tweets = (tweet) => {
   const [userData, setUserData] = useState(undefined);
