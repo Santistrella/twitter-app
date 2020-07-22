@@ -34,7 +34,7 @@ const Names = ({ setStep }) => {
         inputRef={register({
           required: "Required",
         })}
-        name="firstname"
+        name="firstName"
         className={classes.textField}
         defaultValue={state.data.firstName}
       />

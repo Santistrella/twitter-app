@@ -11,35 +11,8 @@ import {
 import profilepic from "./profilepic.jpg";
 
 export const Tweets = (tweet) => {
-  const [userData, setUserData] = useState(undefined);
   const token = localStorage.getItem("user");
   const id = tweet.user_id;
-
-  useEffect(() => {
-    fetch(`http://localhost/api/user/${id}`, {
-      method: "get",
-      mode: "cors",
-      headers: {
-        "content-type": "application/json",
-        headers: `Bearer ${token}`,
-      },
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        throw res;
-      })
-      .then((resJson) => {
-        setUserData(resJson);
-      });
-  }, [id]);
-
-  console.log(userData);
-
-  if (userData === undefined) {
-    return <div />;
-  }
 
   const DeleteTweet = () => {
     const token = localStorage.getItem("user");
@@ -63,8 +36,8 @@ export const Tweets = (tweet) => {
       <header>
         <img src={profilepic} className="profile-thumbnail" />
         <div className="profile-name">
-          <h3>{userData.name}</h3>
-          <p>{userData.email}</p>
+          <h3>{tweet.user.name}</h3>
+          <p>{tweet.user.email}</p>
         </div>
       </header>
       <div id="inner">

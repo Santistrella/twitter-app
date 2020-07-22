@@ -21,16 +21,16 @@ export const RegisterModal = () => {
         variant="outlined"
         color="primary"
         onClick={handleClickOpen}
-        className="tweetButton"
+        className="registerButton"
       >
-        Register
+        Regístrate
       </button>
       <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">Register</DialogTitle>
+        <DialogTitle id="form-dialog-title">Regístrate</DialogTitle>
         <DialogContent>
           <MultipleStepForm />
         </DialogContent>

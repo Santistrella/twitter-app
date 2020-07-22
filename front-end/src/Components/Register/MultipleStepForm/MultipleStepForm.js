@@ -11,7 +11,7 @@ const steps = [
   { id: "address" },
   { id: "contact" },
   { id: "review" },
-  { id: "submit" }
+  { id: "submit" },
 ];
 
 createStore({
@@ -19,26 +19,26 @@ createStore({
     firstName: "Jane",
     lastName: "Doe",
     birthDate: "2017-05-24",
-    passsword: "",
+    password: "",
     description: "this is a description",
     state: "CA",
     zip: "90505",
     email: "email@domain.com",
     phone: "+61 4252 454 332",
-    image: {}
-  }
+    image: {},
+  },
 });
 
 const MultipleStepForm = () => {
-  const [ step, setStep ] = useState('Name');
-  console.log(step)
+  const [step, setStep] = useState("Name");
+  console.log(step);
 
   return (
     <StateMachineProvider>
-      { step === 'Name' && <Names setStep={setStep} /> }
-      { step === 'Password' && <Password setStep={setStep} /> }
-      { step === 'ProfilePhoto' && <ProfilePhoto setStep={setStep} /> }
-      { step === 'UserDescription' && <UserDescription setStep={setStep} /> }
+      {step === "Name" && <Names setStep={setStep} />}
+      {step === "Password" && <Password setStep={setStep} />}
+      {step === "ProfilePhoto" && <ProfilePhoto setStep={setStep} />}
+      {step === "UserDescription" && <UserDescription setStep={setStep} />}
     </StateMachineProvider>
   );
 };
