@@ -6,47 +6,38 @@ import {
   faCommentAlt,
   faHeart,
   faShareSquare,
+  faTrashAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import profilepic from "./profilepic.jpg";
 
 export const Tweets = (tweet) => {
-  const [userData, setUserData] = useState(undefined);
   const token = localStorage.getItem("user");
   const id = tweet.user_id;
 
-  useEffect(() => {
-    fetch(`http://localhost/api/user/${id}`, {
-      method: "get",
+  const DeleteTweet = () => {
+    const token = localStorage.getItem("user");
+    fetch(`http://localhost/api/tweet/${tweet.id}`, {
+      method: "delete",
       mode: "cors",
       headers: {
         "content-type": "application/json",
-        headers: `Bearer ${token}`,
+        authorization: `Bearer ${token}`,
       },
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        throw res;
-      })
-      .then((resJson) => {
-        setUserData(resJson);
-      });
-  }, [id]);
-
-  console.log(userData);
-
-  if (userData === undefined) {
-    return <div />;
-  }
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      throw res;
+    });
+  };
 
   return (
-    <div className="tweetContainer">
+    <div className="tweetContainer" key={tweet.id}>
       <header>
         <img src={profilepic} className="profile-thumbnail" />
         <div className="profile-name">
-          <h3>{userData.name}</h3>
-          <p>{userData.email}</p>
+          <h3>{tweet.user.name}</h3>
+          <p>{tweet.user.email}</p>
         </div>
       </header>
       <div id="inner">
@@ -65,6 +56,15 @@ export const Tweets = (tweet) => {
           </button>
           <button id="SendBtn">
             <FontAwesomeIcon icon={faShareSquare} />
+          </button>
+          <button
+            className="LikeBtn"
+            id="deleteBtn"
+            onClick={() => {
+              DeleteTweet(tweet.id);
+            }}
+          >
+            <FontAwesomeIcon icon={faTrashAlt} />
           </button>
         </div>
       </footer>

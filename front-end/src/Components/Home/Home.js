@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./Home.css";
 import { TweetCreator } from "../Tweet/TweetCreator/TweetCreator";
 import { Tweets } from "../Tweet/Tweets/Tweets";
-import { useParams } from "react-router-dom";
 
 export const Home = () => {
   const [tweet, setTweet] = useState();

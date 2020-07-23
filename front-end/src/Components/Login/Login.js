@@ -6,6 +6,7 @@ import twittersidebar from "./twittersidebar.png";
 import AuthService from "../../Services/auth.service";
 import { useAlert } from "react-alert";
 import { RegisterModal } from "../Register/RegisterModal/RegisterModal";
+import { TextField } from "@material-ui/core";
 
 export const LoginForm = () => {
   const { register, handleSubmit, errors } = useForm();
@@ -55,8 +56,8 @@ export const LoginForm = () => {
           <button className="loginButton" type="submit">
             Iniciar Sesión
           </button>
-          <RegisterModal />
         </form>
+        <RegisterModal />
       </div>
     </div>
   );
