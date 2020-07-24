@@ -23,13 +23,13 @@ import { AlertTemplate } from "./Components/Alerts/AlertTemplate";
 import { AuthProvider, useAuth } from "./Context/authentication.context";
 
 const AppIndex = () => {
-  const { logged } = useAuth();
+  const { auth } = useAuth();
   return (
     <Router>
-      {!logged && <Route path={"/explore"} component={Explore} />}
+      {!auth.logged && <Route path={"/explore"} component={Explore} />}
       <div className="LoggedApp">
-        {logged && <Header />}
-        {logged && <TopNav />}
+        {auth.logged && <Header />}
+        {auth.logged && <TopNav />}
         <Switch>
           <PrivateRoute exact path={"/home"} component={Home} />
           <PrivateRoute path={"/explore/user"} component={ExploreUser} />
@@ -40,7 +40,7 @@ const AppIndex = () => {
           <PrivateRoute path={"/messages"} component={Messages} />
           <PrivateRoute path={"/notifications"} component={Notifications} />
         </Switch>
-        {logged && <News />}
+        {auth.logged && <News />}
       </div>
     </Router>
   );

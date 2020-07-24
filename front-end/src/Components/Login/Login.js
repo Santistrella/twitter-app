@@ -14,20 +14,17 @@ export const LoginForm = () => {
   const alert = useAlert();
   const history = useHistory();
 
-  const { setLogged } = useAuth();
+  const { authenticate } = useAuth();
 
-  const onSuccessLogin = () => {
+  const onSuccessLogin = (token) => {
+    authenticate(token);
     history.push("/home");
   };
 
   const onSubmit = (data) => {
     console.log(data);
     //alert.show('Oh look, an alert!')
-    AuthService.login(data, onSuccessLogin).then((response) => {
-      console.log(response);
-      setLogged(true);
-      onSuccessLogin();
-    });
+    AuthService.login(data, onSuccessLogin);
   };
 
   return (

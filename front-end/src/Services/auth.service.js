@@ -14,8 +14,7 @@ const login = (data, onSuccess) => {
     (response) => {
       console.log(response);
       if (response.access_token) {
-        localStorage.setItem("user", response.access_token);
-        onSuccess();
+        onSuccess(response.access_token);
         return;
       } else {
         console.log("not logged");
