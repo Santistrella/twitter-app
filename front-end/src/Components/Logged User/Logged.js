@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "./Logged.css";
+import "../../App.css";
 import { TopNav } from "../Navigations/TopNav/Topnav";
 import { Header } from "../Navigations/Header/Header";
 import { BrowserRouter as Router, Redirect, Route } from "react-router-dom";

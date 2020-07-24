@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./TweetCreator.css";
 
-export const TweetCreator = () => {
+export const TweetCreator = ({ refresh }) => {
   const initialState = {
     id: "",
     tweet: "",
@@ -21,6 +21,7 @@ export const TweetCreator = () => {
       body: JSON.stringify(data),
     }).then((res) => {
       if (res.ok) {
+        refresh(true);
         return res.json();
       }
       throw res;
