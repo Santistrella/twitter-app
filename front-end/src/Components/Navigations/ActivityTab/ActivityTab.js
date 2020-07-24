@@ -53,7 +53,8 @@ export const ActivityTab = () => {
       </Tabs>
       {value === 0 && (
         <div>
-          {tweet && tweet.map((tweet) => <Tweets {...tweet} key={tweet.id} />)}
+          {tweet &&
+            tweet.map((tweet) => <Tweets tweet={tweet} key={tweet.id} />)}
         </div>
       )}
       {value === 1 && <div>Respuestas</div>}

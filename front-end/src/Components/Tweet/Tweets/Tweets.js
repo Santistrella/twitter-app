@@ -10,7 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import profilepic from "./profilepic.jpg";
 
-export const Tweets = (tweet) => {
+export const Tweets = ({ tweet, refresh }) => {
   const token = localStorage.getItem("user");
   const id = tweet.user_id;
 
@@ -25,6 +25,7 @@ export const Tweets = (tweet) => {
       },
     }).then((res) => {
       if (res.ok) {
+        refresh(true);
         return res.json();
       }
       throw res;
