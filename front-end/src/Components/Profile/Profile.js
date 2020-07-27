@@ -11,6 +11,7 @@ import authHeader from "../../Api/authHeader";
 export const Profile = () => {
   const currentUser = AuthService.getCurrentUser();
 
+  const [openEditModal, setOpenEditModal] = useState(false);
   const [userData, setUserData] = useState(undefined);
   const { id } = useParams();
 
@@ -35,17 +36,6 @@ export const Profile = () => {
   }, [id]);
 
   console.log(userData);
-
-  const [tweet, setTweet] = useState();
-  const [openEditModal, setOpenEditModal] = useState(false);
-
-  useEffect(() => {
-    fetch("http://localhost/api/tweet")
-      .then((response) => response.json())
-      .then((usersFromResponse) => {
-        setTweet(usersFromResponse);
-      });
-  }, []);
 
   if (userData === undefined) {
     return <div />;
