@@ -9,28 +9,33 @@ import {
   faTrashAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import profilepic from "./profilepic.jpg";
+import { useAuth } from "../../../Context/authentication.context";
 
-export const Tweets = (tweet) => {
+export const Tweets = ({ tweet, refresh }) => {
   const token = localStorage.getItem("user");
   const id = tweet.user_id;
+  const { auth } = useAuth();
 
   const DeleteTweet = () => {
-    const token = localStorage.getItem("user");
     fetch(`http://localhost/api/tweet/${tweet.id}`, {
       method: "delete",
       mode: "cors",
       headers: {
         "content-type": "application/json",
-        authorization: `Bearer ${token}`,
+        authorization: `Bearer ${auth.token}`,
       },
     }).then((res) => {
       if (res.ok) {
+        refresh(true);
         return res.json();
       }
       throw res;
     });
   };
 
+  const buttonCallback = React.useCallback(() => {
+    DeleteTweet(tweet.id);
+  }, [tweet.id]);
   return (
     <div className="tweetContainer" key={tweet.id}>
       <header>
@@ -57,13 +62,7 @@ export const Tweets = (tweet) => {
           <button id="SendBtn">
             <FontAwesomeIcon icon={faShareSquare} />
           </button>
-          <button
-            className="LikeBtn"
-            id="deleteBtn"
-            onClick={() => {
-              DeleteTweet(tweet.id);
-            }}
-          >
+          <button className="LikeBtn" id="deleteBtn" onClick={buttonCallback}>
             <FontAwesomeIcon icon={faTrashAlt} />
           </button>
         </div>

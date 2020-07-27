@@ -9,6 +9,7 @@
     border-left: 0.5px solid rgba(40, 44, 52, 0.26);
     box-sizing: border-box;
     z-index: 2;
+    flex-grow: 1;
 }
 
 .RecommendDiv {

@@ -1,0 +1,11 @@
+
+.UserCard {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.UserCardPicture {
+    max-height: 50px;
+    border-radius: 100px;
+}

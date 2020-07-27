@@ -7,22 +7,24 @@ import AuthService from "../../Services/auth.service";
 import { useAlert } from "react-alert";
 import { RegisterModal } from "../Register/RegisterModal/RegisterModal";
 import { TextField } from "@material-ui/core";
+import { useAuth } from "../../Context/authentication.context";
 
 export const LoginForm = () => {
   const { register, handleSubmit, errors } = useForm();
   const alert = useAlert();
   const history = useHistory();
 
-  const onSuccessLogin = () => {
+  const { authenticate } = useAuth();
+
+  const onSuccessLogin = (token) => {
+    authenticate(token);
     history.push("/home");
   };
 
   const onSubmit = (data) => {
     console.log(data);
     //alert.show('Oh look, an alert!')
-    AuthService.login(data, onSuccessLogin).then((response) => {
-      console.log(response);
-    });
+    AuthService.login(data, onSuccessLogin);
   };
 
   return (
