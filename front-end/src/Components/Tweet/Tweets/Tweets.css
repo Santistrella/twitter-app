@@ -82,7 +82,7 @@
     align-items: center;
 }
 
-.cta {
+.iconsContainer {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -90,7 +90,7 @@
     cursor: pointer;
 }
 
-.cta button {
+.iconsContainer button {
     width: 50px;
     height: 50px;
     text-decoration: none;
@@ -166,6 +166,6 @@
 }
 
 @media screen and (min-width: 401px) and (max-width: 1024px) {
-    .cta button {margin-left: 50px}
+    .iconsContainer button {margin-left: 50px}
     .tweetContainer {border: 1px solid rgba(40, 44, 52, 0.13)}
 }

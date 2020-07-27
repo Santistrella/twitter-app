@@ -5,6 +5,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import "./ActivityTab.css";
 import { Tweets } from "../../Tweet/Tweets/Tweets";
+import { useParams } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -21,6 +22,7 @@ const useStyles = makeStyles({
 export const ActivityTab = () => {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  const id = useParams();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -28,7 +30,7 @@ export const ActivityTab = () => {
 
   const [tweet, setTweet] = useState();
   useEffect(() => {
-    fetch("http://localhost/api/tweet")
+    fetch(`http://localhost/api/user/tweet/${id}`)
       .then((response) => response.json())
       .then((usersFromResponse) => {
         setTweet(usersFromResponse);
