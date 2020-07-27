@@ -27,7 +27,7 @@ const AppIndex = () => {
   return (
     <Router>
       {!auth.logged && <Route path={"/explore"} component={Explore} />}
-      <div className="LoggedApp">
+      <div className="App">
         {auth.logged && <Header />}
         {auth.logged && <TopNav />}
         <Switch>

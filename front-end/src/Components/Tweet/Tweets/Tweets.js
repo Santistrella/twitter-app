@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./Tweets.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -49,7 +49,7 @@ export const Tweets = ({ tweet, refresh }) => {
         <p>{tweet.tweet}</p>
       </div>
       <footer>
-        <div className="cta">
+        <div className="iconsContainer">
           <button id="commentBtn">
             <FontAwesomeIcon icon={faCommentAlt} />
           </button>

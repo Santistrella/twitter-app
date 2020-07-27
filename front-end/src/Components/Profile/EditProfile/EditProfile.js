@@ -125,7 +125,7 @@ export default function EditProfile(props) {
           id={"surname"}
           name={"surname"}
           onChange={handleInputChange}
-          placeholder="Surname"
+          placeholder="Apellido"
           value={userData.surname}
           type="url"
         />
@@ -134,7 +134,7 @@ export default function EditProfile(props) {
           id={"email"}
           name={"email"}
           onChange={handleInputChange}
-          placeholder="Add the description of the pin"
+          placeholder="Correo electronico"
           value={userData.email}
         />
         <hr />
@@ -142,7 +142,7 @@ export default function EditProfile(props) {
           id={"description"}
           name={"description"}
           onChange={handleInputChange}
-          placeholder="Add the description of the pin"
+          placeholder="Descripción"
           value={userData.description}
         />
       </div>
