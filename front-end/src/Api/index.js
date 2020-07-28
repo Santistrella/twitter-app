@@ -1,4 +1,5 @@
 import authHeader from "./authHeader";
+import { useAuth } from "../Context/authentication.context";
 
 const API_HOST = "http://localhost/api";
 
@@ -61,11 +62,11 @@ const getPrivateResource = (model) => {
   return sendRequest(model, { method: "GET", headers: authHeader() });
 };
 
-const createPrivateResource = (data, model) => {
+const createPrivateResource = (data, model, token) => {
   return sendRequest(model, {
     method: "POST",
     body: data,
-    headers: authHeader(),
+    headers: authHeader(token),
   });
 };
 

@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import profilepic from "./profilepic.jpg";
 import { useAuth } from "../../../Context/authentication.context";
+import { NavLink } from "react-router-dom";
 
 export const Tweets = ({ tweet, refresh }) => {
   const token = localStorage.getItem("user");
@@ -39,7 +40,9 @@ export const Tweets = ({ tweet, refresh }) => {
   return (
     <div className="tweetContainer" key={tweet.id}>
       <header>
-        <img src={profilepic} className="profile-thumbnail" />
+        <NavLink to={`/profile/${id}`}>
+          <img src={profilepic} className="profile-thumbnail" />
+        </NavLink>
         <div className="profile-name">
           <h3>{tweet.user.name}</h3>
           <p>{tweet.user.email}</p>

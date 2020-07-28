@@ -52,7 +52,7 @@ class TweetController extends Controller
     // FIND TWEET BY USER ID
     public function findTweetByUserId($user_id) {
 
-        $tweet = Tweet::where('user_id', $user_id)->get();
+        $tweet = Tweet::with("user")->where('user_id', $user_id)->orderBy('id', 'desc')->get();
 
         return response()->json($tweet);
     }

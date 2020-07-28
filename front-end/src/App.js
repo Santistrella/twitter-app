@@ -47,8 +47,6 @@ const AppIndex = () => {
 };
 function App() {
   useEffect(() => {
-    document.title = "Twitter";
-
     const options = {
       position: positions.BOTTOM_CENTER,
       timeout: 50000,

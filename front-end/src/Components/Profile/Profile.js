@@ -14,6 +14,7 @@ export const Profile = () => {
   const [openEditModal, setOpenEditModal] = useState(false);
   const [userData, setUserData] = useState(undefined);
   const { id } = useParams();
+  const token = localStorage.getItem("user");
 
   useEffect(() => {
     fetch(`http://localhost/api/user/${id}`, {
@@ -21,7 +22,7 @@ export const Profile = () => {
       mode: "cors",
       headers: {
         "content-type": "application/json",
-        headers: authHeader(),
+        authorization: `Bearer ${token}`,
       },
     })
       .then((res) => {
