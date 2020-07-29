@@ -15,7 +15,7 @@ import { Lists } from "./Components/Lists/Lists";
 import { Messages } from "./Components/Messages/Messages";
 import { Notifications } from "./Components/Notifs/Notifs";
 import { News } from "./Components/News/News";
-import { ExploreUser } from "./Components/Explore/ExploreUser";
+import { ExploreUser } from "./Components/Explore/ExploreUser/ExploreUser";
 import PrivateRoute from "./Components/PrivateRoute";
 import { Explore } from "./Components/Explore/Explore";
 import { transitions, positions, Provider as AlertProvider } from "react-alert";
@@ -26,7 +26,7 @@ const AppIndex = () => {
   const { auth } = useAuth();
   return (
     <Router>
-      {!auth.logged && <Route path={"/explore"} component={Explore} />}
+      {!auth.logged && <Route path={"/"} component={Explore} />}
       <div className="App">
         {auth.logged && <Header />}
         {auth.logged && <TopNav />}

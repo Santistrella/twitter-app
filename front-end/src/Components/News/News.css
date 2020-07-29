@@ -1,3 +1,13 @@
+.FlexNews {
+    display: flex;
+    top: 0;
+    right: 0;
+    position: sticky;
+    height: 100vh;
+    z-index: 2;
+    border-left: 0.5px solid rgba(40, 44, 52, 0.26);
+}
+
 .NewsContainer {
     display: flex;
     flex-direction: column;
@@ -5,10 +15,8 @@
     justify-content: flex-start;
     background-color: #ffffff;
     height: 100vw;
-    border-left: 0.5px solid rgba(40, 44, 52, 0.26);
-    box-sizing: border-box;
     z-index: 2;
-    flex-grow: 2;
+    position: relative;
 }
 
 .RecommendDiv {

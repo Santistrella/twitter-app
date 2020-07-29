@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import "./Home.css";
 import { TweetCreator } from "../Tweet/TweetCreator/TweetCreator";
-import { Tweets } from "../Tweet/Tweets/Tweets";
+import { Tweets } from "../Tweet/TweetsFeed/Tweets";
 
 export const Home = () => {
   const [tweet, setTweet] = useState(undefined);

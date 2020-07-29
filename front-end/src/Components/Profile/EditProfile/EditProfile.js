@@ -3,6 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
+import { useAuth } from "../../../Context/authentication.context";
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -41,6 +42,10 @@ export default function EditProfile(props) {
   const [created, setCreated] = React.useState(undefined);
 
   const history = useHistory();
+
+  const refresh = () => {
+    window.location.reload(false);
+  };
 
   const { id } = useParams();
   console.log("id", id);
@@ -94,7 +99,7 @@ export default function EditProfile(props) {
       .then((resJson) => {
         setCreated(resJson);
         setIsSubmitting(false);
-        history.push("/profile");
+        refresh(true);
       });
   };
   console.log("open", open);

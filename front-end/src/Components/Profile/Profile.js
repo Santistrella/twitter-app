@@ -17,6 +17,10 @@ export const Profile = () => {
   const token = localStorage.getItem("user");
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     fetch(`http://localhost/api/user/${id}`, {
       method: "get",
       mode: "cors",
@@ -35,8 +39,6 @@ export const Profile = () => {
         setUserData(resJson);
       });
   }, [id]);
-
-  console.log(userData);
 
   if (userData === undefined) {
     return <div />;

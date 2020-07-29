@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./Header.css";
 import { NavLink, Link } from "react-router-dom";
 import twitter from "./twitter.png";
-
 import { Menu, MenuItem } from "@material-ui/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
