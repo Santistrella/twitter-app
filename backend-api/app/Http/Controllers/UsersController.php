@@ -28,7 +28,7 @@ class UsersController extends Controller
             'name' => $data['name'],
             'surname' => $data['surname'],
             'email' => $data['email'],
-            'password' => Hash::make($request->newPassword),
+            'password' => Hash::make($request->newPassword)
         ]);
         $user->save();
         return response() ->json($user);

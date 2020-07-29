@@ -28,8 +28,6 @@ Route::put('/user/{id}', 'UsersController@update');
 //DELETE ONE USER BY ID
 Route::delete('/user/{id}', 'UsersController@delete');
 
-
-
 // REGISTER AND LOGIN AND LOGOUT AUTHENTICATED USERS
 Route::post('login', 'AuthController@login');
 Route::post('register', 'AuthController@register');
@@ -59,3 +57,12 @@ Route::delete('/tweet/{id}','TweetController@delete');
 Route::get('/tweet/','TweetController@findAll');
 // FIND TWEET BY TWEET ID
 Route::get('/tweet/{id}','TweetController@findTweetById');
+
+// CREATE LIKE BY USER ID
+Route::post('/like','LikesController@create');
+// FIND LIKES
+Route::get('/like','LikesController@findAll');
+// FIND LIKES BY TWEET ID
+Route::get('/like/{id}','LikesController@findLikeByTweetId');
+// DELETE LIKE BY TWEET ID
+Route::delete('/like/tweet/{id}','LikesController@delete');

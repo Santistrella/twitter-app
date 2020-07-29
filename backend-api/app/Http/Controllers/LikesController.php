@@ -11,11 +11,11 @@ use Illuminate\Support\Facades\Validator;
 
 class LikesController
 {
-    // CREATE TWEET - TESTED
+    // CREATE LIKES - TESTED
     public function create(Request $request) {
         $data = $request->all();
         $likesValidator = Validator::make($data, [
-            'user_id' => ['required', 'integer', 'max:11'],
+            'user_id' => ['required', 'integer'],
             'tweet_id' => ['required', 'integer'],
         ]);
         if($likesValidator->fails()) {
@@ -31,22 +31,23 @@ class LikesController
         return response()->json($like);
     }
     // DELETE LIKE - TESTED
-    public function delete($id) {
-        $like = Like::where('id', $id) ->first();
+    public function delete($tweet_id) {
+        $like = Like::where('tweet_id', $tweet_id) ->first();
         $like->delete();
         return response()->json("Like deleted");
     }
-    /*
     // FIND ALL LIKES - TESTED
     public function findAll() {
         // $like = Like::orderBy('id','desc')->get();
         $like = Like::all();
         return response()->json($like);
     }
-    // FIND LIKE BY TWEET ID
-    public function findLikeByTweetId($id) {
-        $like = Tweet::where('id', $id)->first();
-        return response()->json($like);
+    // FIND TWEET BY TWEET ID
+    public function findLikeByTweetId($tweet_id) {
+        $likes = Like::where('tweet_id', $tweet_id)->get();
+        $data = [
+            "count" => sizeof($likes)
+        ];
+        return response()->json($data);
     }
-    */
 }
