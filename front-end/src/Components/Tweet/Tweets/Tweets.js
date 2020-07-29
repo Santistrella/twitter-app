@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./Tweets.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -6,54 +6,50 @@ import {
   faCommentAlt,
   faHeart,
   faShareSquare,
+  faTrashAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import profilepic from "./profilepic.jpg";
+import { useAuth } from "../../../Context/authentication.context";
 
-export const Tweets = (tweet) => {
-  const [userData, setUserData] = useState(undefined);
+export const Tweets = ({ tweet, refresh }) => {
   const token = localStorage.getItem("user");
   const id = tweet.user_id;
+  const { auth } = useAuth();
 
-  useEffect(() => {
-    fetch(`http://localhost/api/user/${id}`, {
-      method: "get",
+  const DeleteTweet = () => {
+    fetch(`http://localhost/api/tweet/${tweet.id}`, {
+      method: "delete",
       mode: "cors",
       headers: {
         "content-type": "application/json",
-        headers: `Bearer ${token}`,
+        authorization: `Bearer ${auth.token}`,
       },
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        throw res;
-      })
-      .then((resJson) => {
-        setUserData(resJson);
-      });
-  }, [id]);
+    }).then((res) => {
+      if (res.ok) {
+        refresh(true);
+        return res.json();
+      }
+      throw res;
+    });
+  };
 
-  console.log(userData);
-
-  if (userData === undefined) {
-    return <div />;
-  }
-
+  const buttonCallback = React.useCallback(() => {
+    DeleteTweet(tweet.id);
+  }, [tweet.id]);
   return (
-    <div className="tweetContainer">
+    <div className="tweetContainer" key={tweet.id}>
       <header>
         <img src={profilepic} className="profile-thumbnail" />
         <div className="profile-name">
-          <h3>{userData.name}</h3>
-          <p>{userData.email}</p>
+          <h3>{tweet.user.name}</h3>
+          <p>{tweet.user.email}</p>
         </div>
       </header>
       <div id="inner">
         <p>{tweet.tweet}</p>
       </div>
       <footer>
-        <div className="cta">
+        <div className="iconsContainer">
           <button id="commentBtn">
             <FontAwesomeIcon icon={faCommentAlt} />
           </button>
@@ -65,6 +61,9 @@ export const Tweets = (tweet) => {
           </button>
           <button id="SendBtn">
             <FontAwesomeIcon icon={faShareSquare} />
+          </button>
+          <button className="LikeBtn" id="deleteBtn" onClick={buttonCallback}>
+            <FontAwesomeIcon icon={faTrashAlt} />
           </button>
         </div>
       </footer>

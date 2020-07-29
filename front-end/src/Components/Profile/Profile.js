@@ -11,6 +11,7 @@ import authHeader from "../../Api/authHeader";
 export const Profile = () => {
   const currentUser = AuthService.getCurrentUser();
 
+  const [openEditModal, setOpenEditModal] = useState(false);
   const [userData, setUserData] = useState(undefined);
   const { id } = useParams();
 
@@ -36,20 +37,6 @@ export const Profile = () => {
 
   console.log(userData);
 
-  const [tweet, setTweet] = useState();
-  const [openEditModal, setOpenEditModal] = useState(false);
-
-
-
-
-  useEffect(() => {
-    fetch("http://localhost/api/tweet")
-      .then((response) => response.json())
-      .then((usersFromResponse) => {
-        setTweet(usersFromResponse);
-      });
-  }, []);
-
   if (userData === undefined) {
     return <div />;
   }
@@ -63,11 +50,23 @@ export const Profile = () => {
           </div>
           <div className="ProfilePicContainer">
             <img alt="profile" src={profilepic} className="profilepic" />
-            <button className="loginButton" onClick={() => setOpenEditModal(true)}>Editar Perfil</button>
-            {openEditModal && <EditProfile open={openEditModal} handleClose={() => setOpenEditModal(false)}/>}
+            <button
+              className="loginButton"
+              onClick={() => setOpenEditModal(true)}
+            >
+              Editar Perfil
+            </button>
+            {openEditModal && (
+              <EditProfile
+                open={openEditModal}
+                handleClose={() => setOpenEditModal(false)}
+              />
+            )}
           </div>
           <div className="profileInfoContainer">
-            <h2>{userData.name}</h2>
+            <h2>
+              {userData.name} {userData.surname}
+            </h2>
             <br />
             <h3>{userData.email}</h3>
             <br />

@@ -82,7 +82,7 @@
     align-items: center;
 }
 
-.cta {
+.iconsContainer {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -90,14 +90,14 @@
     cursor: pointer;
 }
 
-.cta button {
+.iconsContainer button {
     width: 50px;
     height: 50px;
     text-decoration: none;
     border-radius: 50%;
     background-color: white;
     border: none;
-    margin-left: 80px;
+    margin-left: 60px;
     cursor: pointer;
 }
 
@@ -110,7 +110,6 @@
 
 #RtwtBtn {
     width: 40px;
-    height: 40px;width: 40px;
     height: 40px;
     padding-left: 10px;
     border-radius: 50%;
@@ -124,6 +123,13 @@
 }
 
 #SendBtn {
+    width: 40px;
+    height: 40px;
+    padding-left: 10px;
+    border-radius: 50%;
+}
+
+#deleteBtn {
     width: 40px;
     height: 40px;
     padding-left: 10px;
@@ -153,7 +159,13 @@
     transition: 0.3s;
 }
 
+#deleteBtn:hover:not(.active) {
+    color: red;
+    background-color: rgba(255, 0, 0, 0.13);
+    transition: 0.3s;
+}
+
 @media screen and (min-width: 401px) and (max-width: 1024px) {
-    .cta button {margin-left: 50px}
+    .iconsContainer button {margin-left: 50px}
     .tweetContainer {border: 1px solid rgba(40, 44, 52, 0.13)}
 }

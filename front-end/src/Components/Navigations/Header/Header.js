@@ -16,6 +16,7 @@ import {
   faHome,
 } from "@fortawesome/free-solid-svg-icons";
 import { faFeather } from "@fortawesome/free-solid-svg-icons/faFeather";
+import { useAuth } from "../../../Context/authentication.context";
 
 export const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -23,8 +24,12 @@ export const Header = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const { auth } = useAuth();
 
-  const logOut = () => {};
+  const logOut = () => {
+    localStorage.clear();
+    window.location.href = "/explore";
+  };
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -60,7 +65,11 @@ export const Header = () => {
           <FontAwesomeIcon className="icons" icon={faListAlt} />
           <span id="span">Listas</span>
         </NavLink>
-        <NavLink to={"/profile"} activeClassName="active" id="Navlinks">
+        <NavLink
+          to={"/profile/" + auth.sub}
+          activeClassName="active"
+          id="Navlinks"
+        >
           <FontAwesomeIcon className="icons" icon={faUser} />
           <span id="span">Perfil</span>
         </NavLink>
