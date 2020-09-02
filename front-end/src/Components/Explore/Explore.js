@@ -5,7 +5,6 @@ import { ExploreNav } from "../Navigations/ExploreNav/ExploreNav";
 import { ExploreUser } from "./ExploreUser/ExploreUser";
 
 export const Explore = () => {
-  console.log("explore");
   return (
     <div className="mainExplore">
       <ExploreNav />

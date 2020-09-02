@@ -6,7 +6,6 @@ import { ActivityTab } from "../Navigations/ActivityTab/ActivityTab";
 import EditProfile from "./EditProfile/EditProfile";
 import AuthService from "../../Services/auth.service";
 import { useParams } from "react-router-dom";
-import authHeader from "../../Api/authHeader";
 
 export const Profile = () => {
   const currentUser = AuthService.getCurrentUser();

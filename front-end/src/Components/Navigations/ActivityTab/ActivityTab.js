@@ -10,7 +10,6 @@ import { useParams } from "react-router-dom";
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
-    maxWidth: 650,
     color: "#00acee",
     borderRadius: 3,
     borderBottomColor: "#00acee",

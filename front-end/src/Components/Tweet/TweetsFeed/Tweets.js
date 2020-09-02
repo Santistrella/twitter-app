@@ -11,8 +11,10 @@ import {
 import profilepic from "./profilepic.jpg";
 import { useAuth } from "../../../Context/authentication.context";
 import { NavLink } from "react-router-dom";
+import { useTweetContext } from "../TweetContext";
 
-export const Tweets = ({ tweet, refresh }) => {
+export const Tweets = ({ tweet }) => {
+  const { refresh } = useTweetContext();
   const token = localStorage.getItem("user");
   const id = tweet.user_id;
   const { auth } = useAuth();

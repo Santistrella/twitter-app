@@ -7,8 +7,8 @@ import {
   Redirect,
 } from "react-router-dom";
 import { TopNav } from "./Components/Navigations/TopNav/Topnav";
-import { Header } from "./Components/Navigations/Header/Header";
-import { Home } from "./Components/Home/Home";
+import Header from "./Components/Navigations/Header/Header";
+import Home from "./Components/Home/Home";
 import { Profile } from "./Components/Profile/Profile";
 import { Bookmarks } from "./Components/Bookmarks/Bookmarks";
 import { Lists } from "./Components/Lists/Lists";
@@ -21,8 +21,9 @@ import { Explore } from "./Components/Explore/Explore";
 import { transitions, positions, Provider as AlertProvider } from "react-alert";
 import { AlertTemplate } from "./Components/Alerts/AlertTemplate";
 import { AuthProvider, useAuth } from "./Context/authentication.context";
+import { tweetContextWrapper } from "./Components/Tweet/TweetContext";
 
-const AppIndex = () => {
+const AppIndex = tweetContextWrapper(() => {
   const { auth } = useAuth();
   return (
     <Router>
@@ -44,7 +45,7 @@ const AppIndex = () => {
       </div>
     </Router>
   );
-};
+});
 function App() {
   useEffect(() => {
     const options = {

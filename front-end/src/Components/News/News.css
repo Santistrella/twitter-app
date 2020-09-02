@@ -3,9 +3,9 @@
     top: 0;
     right: 0;
     position: sticky;
-    height: 100vh;
-    z-index: 2;
-    border-left: 0.5px solid rgba(40, 44, 52, 0.26);
+    height: 100vw;
+    z-index: 3;
+    border-left: 1px solid rgba(40, 44, 52, 0.26);
 }
 
 .NewsContainer {
@@ -14,8 +14,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     background-color: #ffffff;
-    height: 100vw;
-    z-index: 2;
+    z-index: 3;
     position: relative;
 }
 

@@ -2,30 +2,22 @@ import React, { useCallback, useEffect, useState } from "react";
 import "./Home.css";
 import { TweetCreator } from "../Tweet/TweetCreator/TweetCreator";
 import { Tweets } from "../Tweet/TweetsFeed/Tweets";
+import { tweetContextWrapper, useTweetContext } from "../Tweet/TweetContext";
 
-export const Home = () => {
-  const [tweet, setTweet] = useState(undefined);
-
-  const refresh = useCallback(() => {
-    fetch("http://localhost/api/tweet")
-      .then((response) => response.json())
-      .then((usersFromResponse) => {
-        setTweet(usersFromResponse);
-      });
-  }, []);
-  console.log(tweet);
+const Home = () => {
+  const { tweets, refresh } = useTweetContext();
   useEffect(refresh, []);
   return (
     <div className="Home">
       <div className="feedContainer">
-        <TweetCreator refresh={refresh} />
+        <TweetCreator />
         <div className="tweets">
-          {tweet &&
-            tweet.map((tweet) => (
-              <Tweets tweet={tweet} key={tweet.id} refresh={refresh} />
-            ))}
+          {tweets &&
+            tweets.map((tweet) => <Tweets tweet={tweet} key={tweet.id} />)}
         </div>
       </div>
     </div>
   );
 };
+
+export default Home;

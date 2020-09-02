@@ -14,10 +14,11 @@ import {
   faEnvelope,
   faHome,
 } from "@fortawesome/free-solid-svg-icons";
-import { faFeather } from "@fortawesome/free-solid-svg-icons/faFeather";
 import { useAuth } from "../../../Context/authentication.context";
+import TweetCreateModal from "./TweetCreateModal";
+import { tweetContextWrapper } from "../../Tweet/TweetContext";
 
-export const Header = () => {
+const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClose = () => {
@@ -88,12 +89,9 @@ export const Header = () => {
             <a href="#">Pantalla</a>
           </div>
         </div>
-        <button className="tweetButton" id="Twtresponsive">
-          <FontAwesomeIcon icon={faFeather} id="iconresponsive" />
-          <span id="span">Twittear</span>
-        </button>
+        <TweetCreateModal />
         <button className="tweetButton" onClick={handleClick}>
-          User
+          Sesión
         </button>
         <Menu
           id="simple-menu"
@@ -109,3 +107,5 @@ export const Header = () => {
     </div>
   );
 };
+
+export default Header;
