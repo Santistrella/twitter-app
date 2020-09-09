@@ -6,7 +6,6 @@ import { ActivityTab } from "../Navigations/ActivityTab/ActivityTab";
 import EditProfile from "./EditProfile/EditProfile";
 import AuthService from "../../Services/auth.service";
 import { useParams } from "react-router-dom";
-import authHeader from "../../Api/authHeader";
 
 export const Profile = () => {
   const currentUser = AuthService.getCurrentUser();
@@ -14,6 +13,11 @@ export const Profile = () => {
   const [openEditModal, setOpenEditModal] = useState(false);
   const [userData, setUserData] = useState(undefined);
   const { id } = useParams();
+  const token = localStorage.getItem("user");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     fetch(`http://localhost/api/user/${id}`, {
@@ -21,7 +25,7 @@ export const Profile = () => {
       mode: "cors",
       headers: {
         "content-type": "application/json",
-        headers: authHeader(),
+        authorization: `Bearer ${token}`,
       },
     })
       .then((res) => {
@@ -34,8 +38,6 @@ export const Profile = () => {
         setUserData(resJson);
       });
   }, [id]);
-
-  console.log(userData);
 
   if (userData === undefined) {
     return <div />;

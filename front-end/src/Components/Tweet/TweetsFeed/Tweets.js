@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import "./Tweets.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,10 +10,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import profilepic from "./profilepic.jpg";
 import { useAuth } from "../../../Context/authentication.context";
+import { NavLink } from "react-router-dom";
+import { useTweetContext } from "../TweetContext";
 import { LikeButton } from "../../Like/LikeButton";
 import { ShowLikes } from "../../Like/ShowLikes";
 
-export const Tweets = ({ tweet, refresh }) => {
+export const Tweets = ({ tweet }) => {
+  const { refresh } = useTweetContext();
+  const token = localStorage.getItem("user");
   const id = tweet.user_id;
   const { auth } = useAuth();
 
@@ -39,11 +43,12 @@ export const Tweets = ({ tweet, refresh }) => {
   const buttonCallback = React.useCallback(() => {
     DeleteTweet(tweet.id);
   }, [tweet.id]);
-
   return (
     <div className="tweetContainer" key={tweet.id}>
       <header>
-        <img src={profilepic} className="profile-thumbnail" />
+        <NavLink to={`/profile/${id}`}>
+          <img src={profilepic} className="profile-thumbnail" />
+        </NavLink>
         <div className="profile-name">
           <h3>{tweet.user.name}</h3>
           <p>{tweet.user.email}</p>

@@ -7,26 +7,27 @@ import {
   Redirect,
 } from "react-router-dom";
 import { TopNav } from "./Components/Navigations/TopNav/Topnav";
-import { Header } from "./Components/Navigations/Header/Header";
-import { Home } from "./Components/Home/Home";
+import Header from "./Components/Navigations/Header/Header";
+import Home from "./Components/Home/Home";
 import { Profile } from "./Components/Profile/Profile";
 import { Bookmarks } from "./Components/Bookmarks/Bookmarks";
 import { Lists } from "./Components/Lists/Lists";
 import { Messages } from "./Components/Messages/Messages";
 import { Notifications } from "./Components/Notifs/Notifs";
 import { News } from "./Components/News/News";
-import { ExploreUser } from "./Components/Explore/ExploreUser";
+import { ExploreUser } from "./Components/Explore/ExploreUser/ExploreUser";
 import PrivateRoute from "./Components/PrivateRoute";
 import { Explore } from "./Components/Explore/Explore";
 import { transitions, positions, Provider as AlertProvider } from "react-alert";
 import { AlertTemplate } from "./Components/Alerts/AlertTemplate";
 import { AuthProvider, useAuth } from "./Context/authentication.context";
+import { tweetContextWrapper } from "./Components/Tweet/TweetContext";
 
-const AppIndex = () => {
+const AppIndex = tweetContextWrapper(() => {
   const { auth } = useAuth();
   return (
     <Router>
-      {!auth.logged && <Route path={"/explore"} component={Explore} />}
+      {!auth.logged && <Route path={"/"} component={Explore} />}
       <div className="App">
         {auth.logged && <Header />}
         {auth.logged && <TopNav />}
@@ -44,11 +45,9 @@ const AppIndex = () => {
       </div>
     </Router>
   );
-};
+});
 function App() {
   useEffect(() => {
-    document.title = "Twitter";
-
     const options = {
       position: positions.BOTTOM_CENTER,
       timeout: 50000,
