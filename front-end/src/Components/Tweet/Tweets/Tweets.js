@@ -17,6 +17,8 @@ export const Tweets = ({ tweet, refresh }) => {
   const id = tweet.user_id;
   const { auth } = useAuth();
 
+  const [numLikes, setNumLikes] = useState(tweet.numLikes);
+
   const DeleteTweet = () => {
     fetch(`http://localhost/api/tweet/${tweet.id}`, {
       method: "delete",
@@ -58,8 +60,8 @@ export const Tweets = ({ tweet, refresh }) => {
           <button id="RtwtBtn">
             <FontAwesomeIcon icon={faRetweet} />
           </button>
-          <LikeButton tweetId={tweet.id} isLiked={tweet.isLiked}/>
-          <ShowLikes tweetId={tweet.id} numLikes={tweet.numLikes}/>
+          <LikeButton tweetId={tweet.id} isLiked={tweet.isLiked} changeLikes={setNumLikes} numLikes={numLikes} />
+          <ShowLikes tweetId={tweet.id} numLikes={numLikes}/>
           <button id="SendBtn">
             <FontAwesomeIcon icon={faShareSquare} />
           </button>

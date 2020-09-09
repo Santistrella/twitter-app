@@ -15,9 +15,7 @@ class TweetController extends Controller
     // CREATE TWEET - TESTED
     public function create(Request $request) {
         $data = $request->all();
-
         $user = $this->getAuthUser();
-
         $data["user_id"] = $user->id;
         $tweetValidator = Validator::make($data, [
             'user_id' => ['required', 'integer'],

@@ -5,11 +5,14 @@ import {faHeart} from "@fortawesome/free-solid-svg-icons";
 import {useAuth} from "../../Context/authentication.context";
 
 export const LikeButton = ( props ) => {
-    const {isLiked, tweetId} = props;
+    const {changeLikes, numLikes, changeLiked} = props;
     const { auth } = useAuth();
     const initialState = {
         tweet_id: props.tweetId,
     };
+
+    const [isLiked, setIsLiked] = useState(props.isLiked);
+
 
     const onHandleChange = () => {
         if (isLiked === false) {
@@ -31,6 +34,8 @@ export const LikeButton = ( props ) => {
         }).then((res) => {
             if (res.ok) {
                 // refresh(true);
+                changeLikes(numLikes-1);
+                setIsLiked(false);
                 return res.json();
             }
             throw res;
@@ -49,6 +54,8 @@ export const LikeButton = ( props ) => {
             body: JSON.stringify({tweet_id : props.tweetId}),
         }).then((res) => {
             if (res.ok) {
+                changeLikes(numLikes+1);
+                setIsLiked(true);
                 return res.json();
             }
             throw res;
