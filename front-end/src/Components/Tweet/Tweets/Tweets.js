@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./Tweets.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,9 +10,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import profilepic from "./profilepic.jpg";
 import { useAuth } from "../../../Context/authentication.context";
+import { LikeButton } from "../../Like/LikeButton";
+import { ShowLikes } from "../../Like/ShowLikes";
 
 export const Tweets = ({ tweet, refresh }) => {
-  const token = localStorage.getItem("user");
   const id = tweet.user_id;
   const { auth } = useAuth();
 
@@ -36,6 +37,7 @@ export const Tweets = ({ tweet, refresh }) => {
   const buttonCallback = React.useCallback(() => {
     DeleteTweet(tweet.id);
   }, [tweet.id]);
+
   return (
     <div className="tweetContainer" key={tweet.id}>
       <header>
@@ -56,9 +58,8 @@ export const Tweets = ({ tweet, refresh }) => {
           <button id="RtwtBtn">
             <FontAwesomeIcon icon={faRetweet} />
           </button>
-          <button id="LikeBtn">
-            <FontAwesomeIcon icon={faHeart} />
-          </button>
+          <LikeButton tweetId={tweet.id} isLiked={tweet.isLiked}/>
+          <ShowLikes tweetId={tweet.id} numLikes={tweet.numLikes}/>
           <button id="SendBtn">
             <FontAwesomeIcon icon={faShareSquare} />
           </button>

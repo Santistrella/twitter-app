@@ -54,7 +54,7 @@ Route::get('/tweet/user/{user_id}','TweetController@findTweetByUserId');
 // DELETE TWEET
 Route::delete('/tweet/{id}','TweetController@delete');
 // FIND ALL TWEETS
-Route::get('/tweet/','TweetController@findAll');
+Route::get('/tweet','TweetController@findAll');
 // FIND TWEET BY TWEET ID
 Route::get('/tweet/{id}','TweetController@findTweetById');
 
@@ -64,5 +64,7 @@ Route::post('/like','LikesController@create');
 Route::get('/like','LikesController@findAll');
 // FIND LIKES BY TWEET ID
 Route::get('/like/{id}','LikesController@findLikeByTweetId');
+// FIND USER ID BY TWEET ID
+Route::get('/like/user/{id}','LikesController@findUserIdByTweetId');
 // DELETE LIKE BY TWEET ID
 Route::delete('/like/tweet/{id}','LikesController@delete');

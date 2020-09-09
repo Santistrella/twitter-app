@@ -5,17 +5,18 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Like;
+use App\Models\Tweet;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
 
-class LikesController
+
+class LikesController extends Controller
 {
     // CREATE LIKES - TESTED
     public function create(Request $request) {
         $data = $request->all();
+        $user = $this->getAuthUser();
         $likesValidator = Validator::make($data, [
-            'user_id' => ['required', 'integer'],
             'tweet_id' => ['required', 'integer'],
         ]);
         if($likesValidator->fails()) {
@@ -25,7 +26,7 @@ class LikesController
         }
         // CREATE A LIKE
         $like = Like::create([
-            'user_id' => $data['user_id'],
+            'user_id' => $user->id,
             'tweet_id' => $data['tweet_id'],
         ]);
         return response()->json($like);
@@ -42,12 +43,18 @@ class LikesController
         $like = Like::all();
         return response()->json($like);
     }
-    // FIND TWEET BY TWEET ID
+    // FIND LIKE BY TWEET ID
     public function findLikeByTweetId($tweet_id) {
         $likes = Like::where('tweet_id', $tweet_id)->get();
         $data = [
             "count" => sizeof($likes)
         ];
         return response()->json($data);
+    }
+    // FIND USER ID BY TWEET ID
+    public function findUserIdByTweetId($tweet_id) {
+        $user = $this->getAuthUser();
+        $like = Like::where('tweet_id', $tweet_id)->where('user_id',$user->id)->first();
+        return response()->json($like);
     }
 }

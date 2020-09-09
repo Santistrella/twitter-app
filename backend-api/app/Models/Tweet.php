@@ -18,4 +18,8 @@ class Tweet extends Model
         return $this->belongsTo('App\Models\User');
     }
 
+    public function like()
+    {
+        return $this->belongsToMany(Tweet::class, "likes", "tweet_id", "user_id");
+    }
 }

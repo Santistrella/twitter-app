@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Like;
 use App\Models\Tweet;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -51,9 +52,7 @@ class TweetController extends Controller
     }
     // FIND TWEET BY USER ID
     public function findTweetByUserId($user_id) {
-
         $tweet = Tweet::where('user_id', $user_id)->get();
-
         return response()->json($tweet);
     }
     // DELETE TWEET - TESTED
@@ -65,13 +64,26 @@ class TweetController extends Controller
     // FIND ALL TWEETS - TESTED
     public function findAll() {
         $tweets = Tweet::with("user")->orderBy('id','desc')->get();
+
+        $user = $this->getAuthUser();
+        foreach ($tweets as $tweet) {
+            $tweet["isLiked"] = false;
+;            if(!is_null($user)) {
+                $like = Like::where("tweet_id", $tweet->id)->where("user_id", $user->id)->first();
+                if (!is_null($like)) {
+                    $tweet["isLiked"] = true;
+                }
+            }
+
+            $likes = Like::where("tweet_id", $tweet->id)->get();
+            $tweet["numLikes"] = sizeof($likes);
+        }
         //$tweet = Tweet::all();
         return response()->json($tweets);
     }
     // FIND TWEET BY TWEET ID
     public function findTweetById($id) {
         $tweet = Tweet::where('id', $id)->first();
-
         return response()->json($tweet);
     }
 
