@@ -1,0 +1,168 @@
+.tweetContainer {
+    display: flex;
+    align-items: flex-start;
+    color: #282c34;
+    flex-direction: column;
+    padding: 10px;
+    min-width: 433px;
+    width: 100%;
+    border-top: 1px solid rgba(40, 44, 52, 0.13);
+    border-bottom: 1px solid rgba(40, 44, 52, 0.13);
+    cursor: pointer;
+    background-color: #ffffff;
+}
+
+.tweetContainer:hover:not(.active) {
+    background-color: rgba(187, 187, 187, 0.13);
+    transition: 0.3s;
+    width: 100%;
+}
+
+.tweetContainer header {
+    display: flex;
+    flex-direction: row;
+
+}
+.tweetContainer header .profile-thumbnail {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    position: relative;
+    top: 10px;
+}
+.tweetContainer header .profile-name {
+    display: flex;
+    margin-left: 10px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.profile-name p {
+    opacity: 50%;
+    font-size: 15px;
+}
+
+.follow-btn button {
+    border: 0;
+    margin-left: 30px;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 30px;
+    border: none;
+    background-color: rgba(0, 172, 238, 0.75);
+    font-size: 15px;
+    font-family: Ubuntu;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+}
+.tweetContainer header h3, header h4 {
+    display: flex;
+    margin: 5px;
+}
+#inner p {
+    margin-bottom: 10px;
+    font-size: 15px;
+    padding-left: 66px;
+    top: -25px;
+    position: relative;
+}
+#inner hr {
+    margin: 20px 0;
+    border-style: solid;
+    opacity: 0.1;
+}
+.tweetContainer footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.iconsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    cursor: pointer;
+}
+
+.iconsContainer button {
+    width: 50px;
+    height: 50px;
+    text-decoration: none;
+    border-radius: 50%;
+    background-color: white;
+    border: none;
+    margin-left: 60px;
+    cursor: pointer;
+}
+
+#commentBtn {
+    width: 40px;
+    height: 40px;
+    padding-left: 10px;
+    border-radius: 50%;
+}
+
+#RtwtBtn {
+    width: 40px;
+    height: 40px;
+    padding-left: 10px;
+    border-radius: 50%;
+}
+
+#LikeBtn {
+    width: 40px;
+    height: 40px;
+    padding-left: 10px;
+    border-radius: 50%;
+}
+
+#SendBtn {
+    width: 40px;
+    height: 40px;
+    padding-left: 10px;
+    border-radius: 50%;
+}
+
+#deleteBtn {
+    width: 40px;
+    height: 40px;
+    padding-left: 10px;
+    border-radius: 50%;
+}
+
+#commentBtn:hover:not(.active) {
+    color: #00acee;
+    background-color: rgba(0, 172, 238, 0.13);
+    transition: 0.3s;
+}
+
+#RtwtBtn:hover:not(.active) {
+    color: limegreen;
+    background-color: rgba(50, 205, 50, 0.13);
+    transition: 0.3s;
+}
+
+#LikeBtn:hover:not(.active) {
+    color: red;
+    background-color: rgba(255, 0, 0, 0.13);
+    transition: 0.3s;
+}
+#SendBtn:hover:not(.active) {
+    color: #00acee;
+    background-color: rgba(0, 172, 238, 0.13);
+    transition: 0.3s;
+}
+
+#deleteBtn:hover:not(.active) {
+    color: red;
+    background-color: rgba(255, 0, 0, 0.13);
+    transition: 0.3s;
+}
+
+@media screen and (min-width: 401px) and (max-width: 1024px) {
+    .iconsContainer button {margin-left: 50px}
+    .tweetContainer {border: 1px solid rgba(40, 44, 52, 0.13)}
+}

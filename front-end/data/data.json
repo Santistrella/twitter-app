@@ -1,0 +1,60 @@
+{
+  "tweets": [
+    {
+      "id": 1,
+      "name": "Santiago",
+      "profile": "@santiagostre",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie.",
+      "avatar": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Albert",
+      "profile": "@albert",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie.",
+      "avatar": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Joaquim",
+      "profile": "@Joaquim",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie.",
+      "avatar": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Xavier",
+      "profile": "@Javier",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie.",
+      "avatar": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Xavier",
+      "profile": "@Javier",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie.",
+      "avatar": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Joaquim",
+      "profile": "@Joaquim",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie.",
+      "avatar": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Joaquim",
+      "profile": "@Joaquim",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie.",
+      "avatar": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Joaquim",
+      "profile": "@Joaquim",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie.",
+      "avatar": "https://thumbs.dreamstime.com/b/creative-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mockup-144849704.jpg"
+    }
+  ]
+}

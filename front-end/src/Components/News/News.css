@@ -1,0 +1,68 @@
+.FlexNews {
+    display: flex;
+    top: 0;
+    right: 0;
+    position: sticky;
+    height: 100vw;
+    z-index: 3;
+    border-left: 1px solid rgba(40, 44, 52, 0.26);
+}
+
+.NewsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #ffffff;
+    z-index: 3;
+    position: relative;
+}
+
+.RecommendDiv {
+    display: flex;
+    flex-direction: column;
+    margin-top: 55px;
+    padding-right: 28%;
+    padding-left: 5%;
+}
+
+.Whatshappening {
+    background-color: rgba(210, 214, 217, 0.29);
+    border-radius: 22px;
+    padding: 10px;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.WhoToFollow {
+    background-color: rgba(210, 214, 217, 0.29);
+    border-radius: 22px;
+    padding: 10px;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.SearchBarContainer {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 55px;
+    background-color: #ffffff;
+}
+
+.SearchBar {
+    padding: 10px;
+    border-radius: 28px;
+    margin: 8px;
+    margin-left: 40px;
+    background-color: rgba(172, 186, 189, 0.42);
+    font-family: Ubuntu;
+    font-size: 15px;
+    border: none;
+    width: 20.7%;
+}
+
+
+@media screen and (min-width: 401px) and (max-width: 1024px) {
+    .NewsContainer {visibility: collapse}
+}

@@ -1,0 +1,19 @@
+.counter {
+    width: 30px;
+    height: 30px;
+    padding-left: 4px;
+}
+
+#LikeBtn {
+    width: 40px;
+    height: 40px;
+    padding-left: 10px;
+    border-radius: 50%;
+}
+
+#CounterBtn {
+    position: absolute;
+    /*z-index: 100;*/
+    width: 40px;
+    height: 40px;
+}

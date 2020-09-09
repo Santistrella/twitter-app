@@ -1,0 +1,44 @@
+.MakeTweet {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 60px;
+    width: 100%;
+    min-width: 455px;
+    border-bottom: 10px solid rgba(40, 44, 52, 0.13);
+}
+
+.MakeTweet input {
+    border: none;
+    font-size: 20px;
+    color: black;
+}
+
+.MakeTweet button {
+    border: none;
+    background-color:#00acee;
+    border-radius: 30px;
+    color: white;
+    font-family: Ubuntu;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 12px;
+    font-size: 15px;
+    margin: 10px;
+    margin-left: 85%;
+    max-width: 100px;
+    min-width: 100px;
+}
+
+.MakeTweet button:hover:not(.active) {
+    background-color: #0390c6;
+    transition: 0.3s;
+}
+
+
+@media screen and (min-width: 401px) and (max-width: 1024px) {
+    .MakeTweet {border-left: 1px solid rgba(40, 44, 52, 0.13); border-right: 1px solid rgba(40, 44, 52, 0.13); }
+}

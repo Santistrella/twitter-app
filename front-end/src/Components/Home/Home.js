@@ -1,16 +1,23 @@
-import React, {Fragment} from 'react';
-import './Home.css';
+import React, { useCallback, useEffect, useState } from "react";
+import "./Home.css";
+import { TweetCreator } from "../Tweet/TweetCreator/TweetCreator";
+import { Tweets } from "../Tweet/TweetsFeed/Tweets";
+import { tweetContextWrapper, useTweetContext } from "../Tweet/TweetContext";
 
-
-
-
-
-export const Home = () => {
-    return (
-        <div className="column">
-        <div className="feed">
-            <h1>Home</h1>
+const Home = () => {
+  const { tweets, refresh } = useTweetContext();
+  useEffect(refresh, []);
+  return (
+    <div className="Home">
+      <div className="feedContainer">
+        <TweetCreator />
+        <div className="tweets">
+          {tweets &&
+            tweets.map((tweet) => <Tweets tweet={tweet} key={tweet.id} />)}
         </div>
-        </div>
-    );
-}
+      </div>
+    </div>
+  );
+};
+
+export default Home;

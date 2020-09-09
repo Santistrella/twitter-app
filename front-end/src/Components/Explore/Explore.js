@@ -1,16 +1,15 @@
-import React, {Fragment} from 'react';
-import './Explore.css';
-
-
-
-
+import React, { Fragment } from "react";
+import "./Explore.css";
+import { LoginForm } from "../Login/Login";
+import { ExploreNav } from "../Navigations/ExploreNav/ExploreNav";
+import { ExploreUser } from "./ExploreUser/ExploreUser";
 
 export const Explore = () => {
-    return (
-        <div className="column">
-        <div className="explore">
-            <h1>Explore</h1>
-        </div>
-        </div>
-    );
-}
+  return (
+    <div className="mainExplore">
+      <ExploreNav />
+      <ExploreUser />
+      <LoginForm />
+    </div>
+  );
+};

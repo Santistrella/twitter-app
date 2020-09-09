@@ -1,14 +1,25 @@
-
-.column {
+.Home {
     display: flex;
-    position: relative;
+    width: 100%;
+    z-index: 1;
 }
 
-.feed {
+.feedContainer {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: #ffffff;
     width: 100%;
-    padding: 10%;
+    box-sizing: border-box;
+    margin-top: 55px;
+    background-color: #ffffff;
+    height: 100%;
+    border-left: 1px solid rgba(40, 44, 52, 0.13);
+}
+
+.tweets {
+    width: 100%;
+}
+
+@media screen and (min-width: 401px) and (max-width: 1024px) {
+    .feedContainer {border-left: none; border-right: none; margin-left: 39px;}
 }

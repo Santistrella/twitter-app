@@ -1,0 +1,8 @@
+.errorsLogin {
+    color: #bf1650;
+  }
+
+.errorsLogin::before {
+    display: inline;
+    content: "⚠ ";
+  }

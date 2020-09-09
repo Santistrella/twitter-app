@@ -1,0 +1,97 @@
+.LoginContainer {
+  margin-top: 10px;
+  padding-left: 10px;
+}
+
+.FormLogin {
+  margin-left: 10px;
+  width: 300px;
+  height: 600px;
+  margin-right: 5%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 20px;
+  border: 0.8px solid rgba(40, 44, 52, 0.13);
+  border-radius: 10px;
+}
+
+#Form input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border-radius: 2px;
+  border: none;
+  border-bottom: 2px solid #282c34;
+  box-sizing: border-box;
+  font-size: 18px;
+  background-color: rgba(99, 107, 111, 0.07);
+}
+
+#Form a {
+  text-decoration: none;
+  color: #00acee;
+}
+
+#Form a:hover:not(.active) {
+  text-decoration: underline;
+}
+
+#Form button {
+  width: 100%;
+}
+
+.loginButton {
+  background-color: #ffffff;
+  border-radius: 30px;
+  margin-top: 20px;
+  height: 40px;
+  color: #00acee;
+  font-size: 15px;
+  font-family: Ubuntu;
+  font-weight: bold;
+  cursor: pointer;
+  border: 0.5px solid #00acee;
+}
+
+.loginButton:hover:not(.active) {
+  background-color: rgba(3, 144, 198, 0.13);
+  transition: 0.3s;
+}
+
+.registerButton {
+  width: 300px;
+  background-color: #00acee;
+  border-radius: 30px;
+  margin-top: 20px;
+  height: 40px;
+  color: #ffffff;
+  font-size: 15px;
+  font-family: Ubuntu;
+  font-weight: bold;
+  cursor: pointer;
+  border: 0.5px solid #00acee;
+}
+
+.registerButton:hover:not(.active) {
+  background-color: #0390c6;
+  transition: 0.3s;
+}
+
+
+.sidebarimage {
+  width: 230px;
+  height: 220px;
+}
+
+.errorsLogin {
+  color: #bf1650;
+}
+
+.errorsLogin::before {
+  display: inline;
+  content: "⚠ ";
+}

@@ -1,0 +1,28 @@
+.TopNavbar {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #ffffff;
+    width: 1119px;
+    height: 55px;
+    border-bottom: 1px solid rgba(40, 44, 52, 0.13);
+    z-index: 2;
+}
+
+.NavigationContainer {
+    width: 100%;
+    height: 100%;
+    border-left: 1px solid rgba(40, 44, 52, 0.13);
+}
+
+.TopNavbar h3 {
+    padding-left: 10px;
+    line-height: 20px;
+    font-size: 22px;
+}
+
+@media screen and (min-width: 401px) and (max-width: 1024px) {
+    .NavigationContainer {border-right: none;}
+    .SearchBar {display: none}
+}

@@ -1,0 +1,18 @@
+.followButton {
+    border: none;
+    background-color:#00acee;
+    border-radius: 30px;
+    width: 90px;
+    height: 30px;
+    color: white;
+    font-size: 15px;
+    font-family: Ubuntu, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.followButton:hover:not(.active) {
+    background-color: #0390c6;
+    transition: 0.3s;
+}
