@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import "./TweetCreator.css";
+import { useTweetContext } from "../TweetContext";
 
-export const TweetCreator = ({ refresh }) => {
+export const TweetCreator = (props) => {
   const initialState = {
     id: "",
     tweet: "",
     media_url: "",
   };
   const [data, setData] = useState(initialState);
+  const { refresh } = useTweetContext();
+  const { onSubmit } = props;
 
   const handleFormSubmit = () => {
     const token = localStorage.getItem("user");
@@ -19,13 +22,20 @@ export const TweetCreator = ({ refresh }) => {
         authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(data),
-    }).then((res) => {
-      if (res.ok) {
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw res;
+      })
+      .then((res) => {
+        if (onSubmit !== undefined) {
+          onSubmit();
+        }
+
         refresh(true);
-        return res.json();
-      }
-      throw res;
-    });
+      });
   };
 
   const handleChange = (key, newValue) => {
