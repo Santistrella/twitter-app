@@ -6,6 +6,7 @@ import Tab from "@material-ui/core/Tab";
 import "./ActivityTab.css";
 import { Tweet } from "../../Tweet/TweetsFeed/Tweet";
 import { useParams } from "react-router-dom";
+import {fetchResource} from "../../../Api/Wrapper";
 
 const useStyles = makeStyles({
   root: {
@@ -29,8 +30,7 @@ export const ActivityTab = () => {
 
   const [tweet, setTweet] = useState();
   const refresh = useCallback(() => {
-    fetch(`http://localhost/api/tweet/user/${params.id}`)
-      .then((response) => response.json())
+    fetchResource('tweet/user', {}, params.id)
       .then((usersFromResponse) => {
         setTweet(usersFromResponse);
       });

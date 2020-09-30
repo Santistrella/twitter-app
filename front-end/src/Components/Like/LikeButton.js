@@ -3,6 +3,7 @@ import "./LikeButton.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faHeart} from "@fortawesome/free-solid-svg-icons";
 import {useAuth} from "../../Context/authentication.context";
+import {fetchResource} from "../../Api/Wrapper";
 
 export const LikeButton = ( props ) => {
     const {changeLikes, numLikes, changeLiked} = props;
@@ -24,41 +25,19 @@ export const LikeButton = ( props ) => {
 
     const deleteLike = () => {
         const token = localStorage.getItem("user");
-        fetch(`http://localhost/api/like/tweet/${props.tweetId}`, {
-            method: "delete",
-            mode: "cors",
-            headers: {
-                "content-type": "application/json",
-                authorization: `Bearer ${auth.token}`,
-            },
-        }).then((res) => {
-            if (res.ok) {
-                // refresh(true);
-                changeLikes(numLikes-1);
-                setIsLiked(false);
-                return res.json();
-            }
-            throw res;
+        fetchResource('like/tweet', {method: "delete"}, props.tweetId)
+        .then((res) => {
+            changeLikes(numLikes-1);
+            setIsLiked(false);
         });
     };
 
     const sendLike = () => {
         const token = localStorage.getItem("user");
-        fetch("http://localhost/api/like", {
-            method: "post",
-            mode: "cors",
-            headers: {
-                "content-type": "application/json",
-                authorization: `Bearer ${auth.token}`,
-            },
-            body: JSON.stringify({tweet_id : props.tweetId}),
-        }).then((res) => {
-            if (res.ok) {
-                changeLikes(numLikes+1);
-                setIsLiked(true);
-                return res.json();
-            }
-            throw res;
+        fetchResource('like', {method: 'post', body: {'tweet_id' :props.tweetId}})
+        .then((res) => {
+            changeLikes(numLikes+1);
+            setIsLiked(true);
         });
     };
 

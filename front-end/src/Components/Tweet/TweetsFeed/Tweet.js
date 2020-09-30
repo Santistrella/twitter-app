@@ -15,6 +15,7 @@ import { useTweetContext } from "../TweetContext";
 import { LikeButton } from "../../Like/LikeButton";
 import { ShowLikes } from "../../Like/ShowLikes";
 import { useModalContext } from "../CommentContext/ModalContext";
+import { fetchResource } from "../../../Api/Wrapper";
 
 export const Tweet = ({ tweet }) => {
   const { refresh } = useTweetContext();
@@ -26,19 +27,12 @@ export const Tweet = ({ tweet }) => {
   const [numLikes, setNumLikes] = useState(tweet.numLikes);
 
   const DeleteTweet = () => {
-    fetch(`http://localhost/api/tweet/${tweet.id}`, {
+    fetchResource("tweet", {
       method: "delete",
-      mode: "cors",
-      headers: {
-        "content-type": "application/json",
-        authorization: `Bearer ${auth.token}`,
-      },
-    }).then((res) => {
-      if (res.ok) {
-        refresh(true);
-        return res.json();
-      }
-      throw res;
+    },
+        tweet.id)
+    .then(() => {
+      refresh(true);
     });
   };
 
