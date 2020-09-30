@@ -8,7 +8,10 @@ export const TweetCreator = (props) => {
     tweet: "",
     media_url: "",
   };
-  const [data, setData] = useState(initialState);
+  const [data, setData] = useState({
+    ...initialState,
+    parentId: props.parentId,
+  });
   const { refresh } = useTweetContext();
   const { onSubmit } = props;
 
@@ -33,8 +36,8 @@ export const TweetCreator = (props) => {
         if (onSubmit !== undefined) {
           onSubmit();
         }
-
         refresh(true);
+        setData(initialState);
       });
   };
 
