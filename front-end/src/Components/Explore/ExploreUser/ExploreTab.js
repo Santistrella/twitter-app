@@ -22,25 +22,7 @@ const useStyles = makeStyles({
 });
 
 export const ExploreTab = () => {
-  const [news, setNews] = useState([]);
-  const API =
-    "https://api-hoaxy.p.rapidapi.com/tweets?ids=[29317,68363,1000,1400]";
 
-  useEffect(() => {
-    fetch(API, {
-      method: "GET",
-      headers: {
-        "x-rapidapi-host": "api-hoaxy.p.rapidapi.com",
-        "x-rapidapi-key": "5e698e8bc4msh3f2b88b6ba11593p14dfffjsn2fd6ea1e7a5d",
-      },
-    })
-      .then((res) => res.json())
-      .then((news) => setNews(news))
-      .catch((err) => {
-        console.log(err);
-        console.log(news);
-      });
-  }, []);
 
   const classes = useStyles();
   const [value, setValue] = React.useState(0);

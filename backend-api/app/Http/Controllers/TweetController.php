@@ -39,13 +39,10 @@ class TweetController extends Controller
             $code = Response::HTTP_UNPROCESSABLE_ENTITY; // ERROR 422
             return response()->json(['error' => $errors, 'code' => $code], $code);
         }
+
+
         // CREATE A TWEET
-        $tweet = Tweet::create([
-            'user_id' => $data['user_id'],
-            'tweet' => $data['tweet'],
-            'media_url' => $data['media_url'],
-            'parent_id' => $data['parentId']
-        ]);
+        $tweet = Tweet::create($data);
 
         return response()->json($tweet);
     }

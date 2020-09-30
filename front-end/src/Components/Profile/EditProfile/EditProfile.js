@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import { useAuth } from "../../../Context/authentication.context";
+import {fetchResource} from "../../../Api/Wrapper";
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -51,22 +52,8 @@ export default function EditProfile(props) {
   console.log("id", id);
   React.useEffect(() => {
     const token = localStorage.getItem("user");
-    fetch(`http://localhost/api/user/${id}`, {
-      method: "get",
-      mode: "cors",
-      headers: {
-        "content-type": "application/json",
-        authorization: "Bearer " + token,
-      },
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        throw res;
-      })
-      .then((resJson) => {
-        console.log("setUserData");
+    fetchResource('user', {}, id)
+        .then((resJson) => {
         setUserData(resJson);
       });
   }, [id]);
@@ -81,25 +68,10 @@ export default function EditProfile(props) {
   const handleFormSubmit = () => {
     const token = localStorage.getItem("user");
     setIsSubmitting(true);
-    fetch(`http://localhost/api/user/${id}`, {
-      method: "put",
-      mode: "cors",
-      headers: {
-        "content-type": "application/json",
-        authorization: "Bearer " + token,
-      },
-      body: JSON.stringify(userData),
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        throw res;
-      })
+    fetchResource('user', {method: 'put'}, id)
       .then((resJson) => {
         setCreated(resJson);
         setIsSubmitting(false);
-        refresh(true);
       });
   };
   console.log("open", open);
