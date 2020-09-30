@@ -4,7 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import "./ActivityTab.css";
-import { Tweets } from "../../Tweet/TweetsFeed/Tweets";
+import { Tweet } from "../../Tweet/TweetsFeed/Tweet";
 import { useParams } from "react-router-dom";
 
 const useStyles = makeStyles({
@@ -49,7 +49,7 @@ export const ActivityTab = () => {
         aria-label="icon tabs example"
         className={classes.root}
       >
-        <Tab className={classes.root} tabIndex={0} label="Tweets" />
+        <Tab className={classes.root} tabIndex={0} label="Tweet" />
         <Tab className={classes.root} tabIndex={1} label="Respuestas" />
         <Tab className={classes.root} tabIndex={2} label="Multimedia" />
         <Tab className={classes.root} tabIndex={3} label="Me gusta" />
@@ -58,7 +58,7 @@ export const ActivityTab = () => {
         <div>
           {tweet &&
             tweet.map((tweet) => (
-              <Tweets tweet={tweet} key={tweet.id} refresh={refresh} />
+              <Tweet tweet={tweet} key={tweet.id} refresh={refresh} />
             ))}
         </div>
       )}

@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import "./Home.css";
 import { TweetCreator } from "../Tweet/TweetCreator/TweetCreator";
-import { Tweets } from "../Tweet/TweetsFeed/Tweets";
+import { Tweet } from "../Tweet/TweetsFeed/Tweet";
 import { tweetContextWrapper, useTweetContext } from "../Tweet/TweetContext";
 
 const Home = () => {
@@ -13,7 +13,7 @@ const Home = () => {
         <TweetCreator />
         <div className="tweets">
           {tweets &&
-            tweets.map((tweet) => <Tweets tweet={tweet} key={tweet.id} />)}
+            tweets.map((tweet) => <Tweet tweet={tweet} key={tweet.id} />)}
         </div>
       </div>
     </div>

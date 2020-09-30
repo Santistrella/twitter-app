@@ -43,7 +43,8 @@ class TweetController extends Controller
         $tweet = Tweet::create([
             'user_id' => $data['user_id'],
             'tweet' => $data['tweet'],
-            'media_url' => $data['media_url']
+            'media_url' => $data['media_url'],
+            'parent_id' => $data['parentId']
         ]);
 
         return response()->json($tweet);

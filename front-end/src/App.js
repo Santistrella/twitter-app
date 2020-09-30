@@ -22,30 +22,33 @@ import { transitions, positions, Provider as AlertProvider } from "react-alert";
 import { AlertTemplate } from "./Components/Alerts/AlertTemplate";
 import { AuthProvider, useAuth } from "./Context/authentication.context";
 import { tweetContextWrapper } from "./Components/Tweet/TweetContext";
+import { commentTweetContextWrapper } from "./Components/Tweet/CommentContext/ModalContext";
 
-const AppIndex = tweetContextWrapper(() => {
-  const { auth } = useAuth();
-  return (
-    <Router>
-      {!auth.logged && <Route path={"/"} component={Explore} />}
-      <div className="App">
-        {auth.logged && <Header />}
-        {auth.logged && <TopNav />}
-        <Switch>
-          <PrivateRoute exact path={"/home"} component={Home} />
-          <PrivateRoute path={"/explore/user"} component={ExploreUser} />
-          <PrivateRoute path={"/profile/:id"} component={Profile} />
-          <PrivateRoute path={"/bookmarks"} component={Bookmarks} />
-          <PrivateRoute path={"/explore"} component={ExploreUser} />
-          <PrivateRoute path={"/lists"} component={Lists} />
-          <PrivateRoute path={"/messages"} component={Messages} />
-          <PrivateRoute path={"/notifications"} component={Notifications} />
-        </Switch>
-        {auth.logged && <News />}
-      </div>
-    </Router>
-  );
-});
+const AppIndex = tweetContextWrapper(
+  commentTweetContextWrapper(() => {
+    const { auth } = useAuth();
+    return (
+      <Router>
+        {!auth.logged && <Route path={"/"} component={Explore} />}
+        <div className="App">
+          {auth.logged && <Header />}
+          {auth.logged && <TopNav />}
+          <Switch>
+            <PrivateRoute exact path={"/home"} component={Home} />
+            <PrivateRoute path={"/explore/user"} component={ExploreUser} />
+            <PrivateRoute path={"/profile/:id"} component={Profile} />
+            <PrivateRoute path={"/bookmarks"} component={Bookmarks} />
+            <PrivateRoute path={"/explore"} component={ExploreUser} />
+            <PrivateRoute path={"/lists"} component={Lists} />
+            <PrivateRoute path={"/messages"} component={Messages} />
+            <PrivateRoute path={"/notifications"} component={Notifications} />
+          </Switch>
+          {auth.logged && <News />}
+        </div>
+      </Router>
+    );
+  })
+);
 function App() {
   useEffect(() => {
     const options = {

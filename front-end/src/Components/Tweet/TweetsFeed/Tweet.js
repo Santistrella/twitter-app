@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import "./Tweets.css";
+import React, { useState } from "react";
+import "./Tweet.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faRetweet,
@@ -14,12 +14,14 @@ import { NavLink } from "react-router-dom";
 import { useTweetContext } from "../TweetContext";
 import { LikeButton } from "../../Like/LikeButton";
 import { ShowLikes } from "../../Like/ShowLikes";
+import { useModalContext } from "../CommentContext/ModalContext";
 
-export const Tweets = ({ tweet }) => {
+export const Tweet = ({ tweet }) => {
   const { refresh } = useTweetContext();
   const token = localStorage.getItem("user");
   const id = tweet.user_id;
   const { auth } = useAuth();
+  const { openModal } = useModalContext();
 
   const [numLikes, setNumLikes] = useState(tweet.numLikes);
 
@@ -43,6 +45,7 @@ export const Tweets = ({ tweet }) => {
   const buttonCallback = React.useCallback(() => {
     DeleteTweet(tweet.id);
   }, [tweet.id]);
+
   return (
     <div className="tweetContainer" key={tweet.id}>
       <header>
@@ -59,14 +62,19 @@ export const Tweets = ({ tweet }) => {
       </div>
       <footer>
         <div className="iconsContainer">
-          <button id="commentBtn">
+          <button id="commentBtn" onClick={() => openModal(tweet.id)}>
             <FontAwesomeIcon icon={faCommentAlt} />
           </button>
           <button id="RtwtBtn">
             <FontAwesomeIcon icon={faRetweet} />
           </button>
-          <LikeButton tweetId={tweet.id} isLiked={tweet.isLiked} changeLikes={setNumLikes} numLikes={numLikes} />
-          <ShowLikes tweetId={tweet.id} numLikes={numLikes}/>
+          <LikeButton
+            tweetId={tweet.id}
+            isLiked={tweet.isLiked}
+            changeLikes={setNumLikes}
+            numLikes={numLikes}
+          />
+          <ShowLikes tweetId={tweet.id} numLikes={numLikes} />
           <button id="SendBtn">
             <FontAwesomeIcon icon={faShareSquare} />
           </button>
